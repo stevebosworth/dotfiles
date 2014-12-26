@@ -1,4 +1,327 @@
-syntax on
 
-" Wrap gitcommit file types at the appropriate length
-filetype indent plugin on
+" don't make vim compatible with vi
+set nocompatible
+
+" turn on syntax highlighting
+syntax on
+" and show line numbers
+set number
+
+" make vim try to detect file types and load plugins for them
+filetype on
+filetype plugin on
+filetype indent on
+
+" reload files changed outside vim
+set autoread
+
+" encoding is utf 8
+set encoding=utf-8
+set fileencoding=utf-8
+
+" enable matchit plugin which ships with vim and greatly enhances '%'
+runtime macros/matchit.vim
+
+" by default, in insert mode backspace won't delete over line breaks, or
+" automatically-inserted indentation, let's change that
+set backspace=indent,eol,start
+
+" dont't unload buffers when they are abandoned, instead stay in the
+" background
+set hidden
+
+" set unix line endings
+set fileformat=unix
+" when reading files try unix line endings then dos, also use unix for new
+" buffers
+set fileformats=unix,dos
+
+" save up to 100 marks, enable capital marks
+set viminfo='100,f1
+
+" case sensitivity
+set ignorecase
+set smartcase
+
+" screen will not be redrawn while running macros, registers or other
+" non-typed comments
+set lazyredraw
+
+" ---------------------- CUSTOMIZATION ----------------------
+"  The following are some extra mappings/configs to enhance my personal
+"  VIM experience
+
+" set , as mapleader
+let mapleader = ","
+
+" map <leader>q and <leader>w to buffer prev/next buffer
+noremap <leader>q :bp<CR>
+noremap <leader>w :bn<CR>
+
+" windows like clipboard
+" yank to and paste from the clipboard without prepending "* to commands
+"let &clipboard = has('unnamedplus') ? 'unnamedplus' : 'unnamed'
+" map c-x and c-v to work as they do in windows, only in insert mode
+"vm <c-x> "+x
+"vm <c-c> "+y
+"cno <c-v> <c-r>+
+"exe 'ino <script> <C-V>' paste#paste_cmd['i']
+
+" save with ctrl+s
+"nmap <c-s> :w<CR>
+"imap <c-s> <Esc>:w<CR>a
+
+" hide unnecessary gui in gVim
+if has("gui_running")
+    set guioptions-=m  " remove menu bar
+    set guioptions-=T  " remove toolbar
+    set guioptions-=r  " remove right-hand scroll bar
+    set guioptions-=L  " remove left-hand scroll bar
+end
+
+" set Adobe's Source Code Pro font as default
+set guifont=Ubuntu\ Mono\ derivative\ Powerline:h15
+
+" allow Tab and Shift+Tab to
+" tab  selection in visual mode
+vmap <Tab> >gv
+vmap <S-Tab> <gv
+
+" remove the .ext~ files, but not the swapfiles
+set nobackup
+set writebackup
+set noswapfile
+
+" search settings
+set incsearch        " find the next match as we type the search
+set hlsearch         " hilight searches by default
+" use ESC to remove search higlight
+nnoremap <esc> :noh<return><esc>
+
+" most of the time I should use ` instead of ' but typing it with my keyabord
+" is a pain, so just toggle them
+"nnoremap ' `
+"nnoremap ` '
+
+" suggestion for normal mode commands
+set wildmode=list:longest
+
+" keep the cursor visible within 3 lines when scrolling
+set scrolloff=3
+
+" indentation
+set expandtab       " use spaces instead of tabs
+set autoindent      " autoindent based on line above, works most of the time
+set smartindent     " smarter indent for C-like languages
+set shiftwidth=2    " when reading, tabs are 4 spaces
+set softtabstop=2   " in insert mode, tabs are 4 spaces
+
+" use <C-Space> for Vim's keyword autocomplete
+"  ...in the terminal
+inoremap <Nul> <C-n>
+"  ...and in gui mode
+inoremap <C-Space> <C-n>
+
+" On file types...
+"   .md files are markdown files
+autocmd BufNewFile,BufRead *.md setlocal ft=markdown
+"   .twig files use html syntax
+autocmd BufNewFile,BufRead *.twig setlocal ft=html
+"   .less files use less syntax
+autocmd BufNewFile,BufRead *.less setlocal ft=less
+"   .jade files use jade syntax
+autocmd BufNewFile,BufRead *.jade setlocal ft=jade
+"   .js.liquid files use .js.liquid syntax
+autocmd BufNewFile,BufRead *.js.liquid setlocal ft=JavaScript
+"   .scss files use scss syntax
+autocmd BufNewFile,BufRead *.scss.liquid setlocal ft=scss
+
+" when pasting over SSH it's a pain to type :set paste and :set nopaste
+" just map it to <f9>
+"set pastetoggle=<f9>
+
+" if windows...
+if has('win32')
+    " start maximized
+    autocmd GUIEnter * simalt ~x
+    " also use .vim instead of vimfiles, make sure to run the following command
+    " once this was copied to /Users/<user>/.vim
+    "  mklink %homepath%/.vimrc %homepath%/.vim/.vimrc
+    let &runtimepath.=',$HOME/.vim'
+endif
+
+" select all mapping
+noremap <leader>a ggVG
+
+" ---------------------- PLUGIN CONFIGURATION ----------------------
+" initiate Vundle
+let &runtimepath.=',$HOME/.vim/bundle/Vundle.vim'
+call vundle#begin()
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+" start plugin defintion
+Plugin 'scrooloose/nerdtree'
+Plugin 'vim-scripts/L9'
+Plugin 'vim-scripts/FuzzyFinder'
+Plugin 'itchyny/lightline.vim'
+Plugin 'Lokaltog/vim-easymotion'
+Plugin 'tpope/vim-surround'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'ervandew/supertab'
+Plugin 'tpope/vim-fugitive'
+Plugin 'vim-scripts/Auto-Pairs'
+Plugin 'editorconfig/editorconfig-vim'
+" -- Web Development
+"Plugin 'Shutnik/jshint2.vim'
+Plugin 'mattn/emmet-vim'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'groenewege/vim-less'
+Plugin 'skammer/vim-css-color'
+Plugin 'hail2u/vim-css3-syntax'
+Plugin 'digitaltoad/vim-jade'
+Plugin 'othree/html5.vim'
+
+" end plugin definition
+call vundle#end()            " required for vundle
+
+"CtrlP cause it's got a stupid name
+set runtimepath^=~/.vim/bundle/ctrlp.vim
+
+" start NERDTree on start-up and focus active window
+"autocmd VimEnter * wincmd p
+"autocmd StdinReadPre * let s:std_in=1
+"autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+map <C-n> :NERDTreeToggle<CR>
+
+" map FuzzyFinder
+noremap <leader>b :FufBuffer<cr>
+noremap <leader>f :FufFile<cr>
+
+" map CrtlP
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_working_path_mode = 'ra'
+
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
+set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
+
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+
+"let g:ctrlp_user_command = 'find %s -type f'        " MacOSX/Linux
+"let g:ctrlp_user_command = 'dir %s /-n /b /s /a-d'  " Windows
+"let g:ctrlp_user_command = 'dir %s /-n /b /s /a-d'  " Windows
+
+" use zencoding with <C-E>
+let g:user_emmet_leader_key = '<c-e>'
+
+" run JSHint when a file with .js extension is saved
+" this requires the jsHint2 plugin
+"autocmd BufWritePost *.js silent :JSHint
+
+"auto resize windows
+autocmd VimResized * wincmd =
+
+" set the color theme to
+colorscheme molokai
+" make a mark for column 80
+" and set the mark color to DarkSlateGray
+
+"Set different cursors for insert and commmand modes
+let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+
+"quit NERDTree with :q 
+function! NERDTreeQuit()
+  redir => buffersoutput
+  silent buffers
+  redir END
+"                     1BufNo  2Mods.     3File           4LineNo
+  let pattern = '^\s*\(\d\+\)\(.....\) "\(.*\)"\s\+line \(\d\+\)$'
+  let windowfound = 0
+
+  for bline in split(buffersoutput, "\n")
+    let m = matchlist(bline, pattern)
+
+    if (len(m) > 0)
+      if (m[2] =~ '..a..')
+        let windowfound = 1
+      endif
+    endif
+  endfor
+
+  if (!windowfound)
+    quitall
+  endif
+endfunction
+autocmd WinEnter * call NERDTreeQuit()
+
+" Ctrl-j/k deletes blank line below/above, and Alt-j/k inserts.
+nnoremap <silent><C-j> m`:silent +g/\m^\s*$/d<CR>``:noh<CR>
+nnoremap <silent><C-k> m`:silent -g/\m^\s*$/d<CR>``:noh<CR>
+nnoremap <silent><A-j> :set paste<CR>m`o<Esc>``:set nopaste<CR>
+nnoremap <silent><A-k> :set paste<CR>m`O<Esc>``:set nopaste<CR>
+
+let g:lightline = {
+      \ 'colorscheme': 'landscape',
+      \ 'mode_map': { 'c': 'NORMAL' },
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ]
+      \ },
+      \ 'component_function': {
+      \   'modified': 'MyModified',
+      \   'readonly': 'MyReadonly',
+      \   'fugitive': 'MyFugitive',
+      \   'filename': 'MyFilename',
+      \   'fileformat': 'MyFileformat',
+      \   'filetype': 'MyFiletype',
+      \   'fileencoding': 'MyFileencoding',
+      \   'mode': 'MyMode',
+      \ },
+      \ 'separator': { 'left': "\U+25C0", 'right': "\U+25B6" },
+      \ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" }
+      \ }
+
+function! MyModified()
+  return &ft =~ 'help\|vimfiler\|gundo' ? '' : &modified ? '+' : &modifiable ? '' : '-'
+endfunction
+
+function! MyReadonly()
+  return &ft !~? 'help\|vimfiler\|gundo' && &readonly ? '⭤' : ''
+endfunction
+
+function! MyFilename()
+  return ('' != MyReadonly() ? MyReadonly() . ' ' : '') .
+        \ (&ft == 'vimfiler' ? vimfiler#get_status_string() : 
+        \  &ft == 'unite' ? unite#get_status_string() : 
+        \  &ft == 'vimshell' ? vimshell#get_status_string() :
+        \ '' != expand('%:t') ? expand('%:t') : '[No Name]') .
+        \ ('' != MyModified() ? ' ' . MyModified() : '')
+endfunction
+
+function! MyFugitive()
+  if &ft !~? 'vimfiler\|gundo' && exists("*fugitive#head")
+    let _ = fugitive#head()
+    return strlen(_) ? '\U+25C0'._ : ''
+  endif
+  return ''
+endfunction
+
+function! MyFileformat()
+  return winwidth(0) > 70 ? &fileformat : ''
+endfunction
+
+function! MyFiletype()
+  return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype : 'no ft') : ''
+endfunction
+
+function! MyFileencoding()
+  return winwidth(0) > 70 ? (strlen(&fenc) ? &fenc : &enc) : ''
+endfunction
+
+function! MyMode()
+  return winwidth(0) > 60 ? lightline#mode() : ''
+endfunction
+
+set laststatus=2
