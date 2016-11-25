@@ -1,8 +1,9 @@
-# holman does dotfiles
+# steve does dotfiles
 
 ## dotfiles
 
-Your dotfiles are how you personalize your system. These are mine.
+Your dotfiles are how you personalize your system. These are mine. But mostly they are 
+forked from 
 
 I was a little tired of having long alias files and everything strewn about
 (which is extremely common on other dotfiles projects, too). That led to this
