@@ -1,15 +1,11 @@
 " don't make vim compatible with vi
 set nocompatible
 
-" turn on syntax highlighting
-syntax on
+" set filetype off for now
+filetype off
+
 " and show line numbers
 set number
-
-" make vim try to detect file types and load plugins for them
-filetype on
-filetype plugin on
-filetype indent on
 
 " reload files changed outside vim
 set autoread
@@ -72,10 +68,10 @@ noremap <leader>w :bn<CR>
 
 " hide unnecessary gui in gVim
 if has("gui_running")
-    set guioptions-=m  " remove menu bar
-    set guioptions-=T  " remove toolbar
-    set guioptions-=r  " remove right-hand scroll bar
-    set guioptions-=L  " remove left-hand scroll bar
+  set guioptions-=m  " remove menu bar
+  set guioptions-=T  " remove toolbar
+  set guioptions-=r  " remove right-hand scroll bar
+  set guioptions-=L  " remove left-hand scroll bar
 end
 
 " set Adobe's Source Code Pro font as default
@@ -141,12 +137,12 @@ autocmd BufNewFile,BufRead *.scss.liquid setlocal ft=scss
 
 " if windows...
 if has('win32')
-    " start maximized
-    autocmd GUIEnter * simalt ~x
-    " also use .vim instead of vimfiles, make sure to run the following command
-    " once this was copied to /Users/<user>/.vim
-    "  mklink %homepath%/.vimrc %homepath%/.vim/.vimrc
-    let &runtimepath.=',$HOME/.vim'
+  " start maximized
+  autocmd GUIEnter * simalt ~x
+  " also use .vim instead of vimfiles, make sure to run the following command
+  " once this was copied to /Users/<user>/.vim
+  "  mklink %homepath%/.vimrc %homepath%/.vim/.vimrc
+  let &runtimepath.=',$HOME/.vim'
 endif
 
 " select all mapping
@@ -183,6 +179,7 @@ Plugin 'digitaltoad/vim-jade'
 Plugin 'othree/html5.vim'
 Plugin 'briancollins/vim-jst'
 Plugin 'pangloss/vim-javascript'
+Plugin 'tpope/vim-rails'
 
 " end plugin definition
 call vundle#end()            " required for vundle
@@ -217,6 +214,14 @@ let g:ctrlp_custom_ignore = 'node_modules\|bower_components\|DS_Store\|git'
 " use zencoding with <C-E>
 let g:user_emmet_leader_key = '<c-e>'
 
+" turn on syntax highlighting
+syntax enable
+
+" make vim try to detect file types and load plugins for them
+filetype on
+filetype plugin on
+filetype indent on
+
 " run JSHint when a file with .js extension is saved
 " this requires the jsHint2 plugin
 "autocmd BufWritePost *.js silent :JSHint
@@ -238,7 +243,7 @@ function! NERDTreeQuit()
   redir => buffersoutput
   silent buffers
   redir END
-"                     1BufNo  2Mods.     3File           4LineNo
+  "                     1BufNo  2Mods.     3File           4LineNo
   let pattern = '^\s*\(\d\+\)\(.....\) "\(.*\)"\s\+line \(\d\+\)$'
   let windowfound = 0
 
@@ -327,3 +332,8 @@ endfunction
 
 " always show lightline
 set laststatus=2
+
+augroup myvimrc
+  au!
+  au BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
+augroup END
