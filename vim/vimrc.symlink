@@ -168,6 +168,7 @@ Plugin 'ervandew/supertab'
 Plugin 'tpope/vim-fugitive'
 Plugin 'vim-scripts/Auto-Pairs'
 Plugin 'editorconfig/editorconfig-vim'
+Plugin 'mileszs/ack.vim'
 " -- Web Development
 "Plugin 'Shutnik/jshint2.vim'
 Plugin 'mattn/emmet-vim'
@@ -201,6 +202,7 @@ noremap <leader>f :FufFile<cr>
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_show_hidden = 1
 
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
@@ -358,3 +360,12 @@ augroup myvimrc
   au!
   au BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
 augroup END
+
+" Ripgrep instead of :grep and :ack
+"if executable("rg")
+  "set grepprg=rg\ --vimgrep\ --no-heading
+  "set grepformat=%f:%l:%c:%m,%f:%l:%m
+"endif
+
+" let g:ackprg = 'rg --vimgrep --no-heading'
+let g:ackprg = "/home/username/bin/ack -s -H --nocolor --nogroup --column"
