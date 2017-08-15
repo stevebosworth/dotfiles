@@ -1,0 +1,8 @@
+# Set the default terminal mode to 256color mode
+set -g default-terminal "screen-256color"
+
+# Use vim keys
+setw -g mode-keys vi
+
+# Center the window list
+set -g status-justify centre

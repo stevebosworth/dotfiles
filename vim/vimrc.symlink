@@ -158,9 +158,8 @@ Plugin 'gmarik/Vundle.vim'
 " start plugin defintion
 Plugin 'scrooloose/nerdtree'
 Plugin 'vim-scripts/L9'
-Plugin 'vim-scripts/FuzzyFinder'
 Plugin 'itchyny/lightline.vim'
-Plugin 'Lokaltog/vim-easymotion'
+"Plugin 'Lokaltog/vim-easymotion'
 Plugin 'tpope/vim-surround'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'airblade/vim-gitgutter'
@@ -169,18 +168,17 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'vim-scripts/Auto-Pairs'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'mileszs/ack.vim'
-" -- Web Development
-"Plugin 'Shutnik/jshint2.vim'
+"" -- Web Development
+Plugin 'Shutnik/jshint2.vim'
 Plugin 'mattn/emmet-vim'
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'groenewege/vim-less'
-Plugin 'skammer/vim-css-color'
 Plugin 'hail2u/vim-css3-syntax'
 Plugin 'digitaltoad/vim-jade'
 Plugin 'othree/html5.vim'
 Plugin 'briancollins/vim-jst'
 Plugin 'pangloss/vim-javascript'
 Plugin 'tpope/vim-rails'
+Plugin 'tpope/vim-liquid'
+Plugin 'nickng/vim-scribble'
 
 " end plugin definition
 call vundle#end()            " required for vundle
@@ -212,9 +210,29 @@ let g:ctrlp_custom_ignore = 'node_modules\|bower_components\|DS_Store\|git'
 "let g:ctrlp_user_command = 'find %s -type f'        " MacOSX/Linux
 "let g:ctrlp_user_command = 'dir %s /-n /b /s /a-d'  " Windows
 "let g:ctrlp_user_command = 'dir %s /-n /b /s /a-d'  " Windows
+let g:ctrlp_show_hidden = 1
+"let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
 " use zencoding with <C-E>
 let g:user_emmet_leader_key = '<c-e>'
+
+" The Silver Searcher
+if executable('ag')
+  " Use ag over grep
+  set grepprg=ag\ --nogroup\ --nocolor
+
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
+  " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 0
+endif
+
+" bind K to grep word under cursor
+nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+
+let g:ackprg = 'ag --vimgrep --no-heading'
+"let g:ackprg = '/usr/local/bin/ack -s -H --nocolor --nogroup --column'
 
 " turn on syntax highlighting
 syntax enable
@@ -235,6 +253,11 @@ autocmd VimResized * wincmd =
 colorscheme molokai
 " make a mark for column 80
 " and set the mark color to DarkSlateGray
+if exists('+colorcolumn')
+  set colorcolumn=80
+else
+  au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
+endif
 
 "Set different cursors for insert and commmand modes
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
@@ -281,15 +304,31 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-map <up> <nop>
-map <down> <nop>
-map <left> <nop>
-map <right> <nop>
+nmap <up> <nop>
+nmap <down> <nop>
+nmap <left> <nop>
+nmap <right> <nop>
 
-imap <up> <nop>
-imap <down> <nop>
-imap <left> <nop>
-imap <right> <nop>
+vmap <up> <nop>
+vmap <down> <nop>
+vmap <left> <nop>
+vmap <right> <nop>
+
+inoremap LL <Esc>A
+
+nnoremap ss i<space><esc>
+
+" " Copy to clipboard
+vnoremap  <leader>y  "+y
+nnoremap  <leader>Y  "+yg_
+nnoremap  <leader>y  "+y
+nnoremap  <leader>yy  "+yy
+
+" " Paste from clipboard
+nnoremap <leader>p "+p
+nnoremap <leader>P "+P
+vnoremap <leader>p "+p
+vnoremap <leader>P "+P
 
 
 let g:lightline = {
@@ -361,11 +400,45 @@ augroup myvimrc
   au BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
 augroup END
 
-" Ripgrep instead of :grep and :ack
-"if executable("rg")
-  "set grepprg=rg\ --vimgrep\ --no-heading
-  "set grepformat=%f:%l:%c:%m,%f:%l:%m
-"endif
 
-" let g:ackprg = 'rg --vimgrep --no-heading'
-let g:ackprg = "/home/username/bin/ack -s -H --nocolor --nogroup --column"
+
+
+" Autoload .vimrc
+augroup reload_vimrc " {
+    autocmd!
+    autocmd BufWritePost $MYVIMRC source $MYVIMRC
+augroup END " }
+
+" Autoload files after change
+
+" Dim inactive windows using 'colorcolumn' setting
+" This tends to slow down redrawing, but is very useful.
+" Based on https://groups.google.com/d/msg/vim_use/IJU-Vk-QLJE/xz4hjPjCRBUJ
+" XXX: this will only work with lines containing text (i.e. not '~')
+" from 
+if exists('+colorcolumn')
+  function! s:DimInactiveWindows()
+    for i in range(1, tabpagewinnr(tabpagenr(), '$'))
+      let l:range = ""
+      if i != winnr()
+        if &wrap
+         " HACK: when wrapping lines is enabled, we use the maximum number
+         " of columns getting highlighted. This might get calculated by
+         " looking for the longest visible line and using a multiple of
+         " winwidth().
+         let l:width=256 " max
+        else
+         let l:width=winwidth(i)
+        endif
+        let l:range = join(range(1, l:width), ',')
+      endif
+      call setwinvar(i, '&colorcolumn', l:range)
+    endfor
+  endfunction
+  augroup DimInactiveWindows
+    au!
+    au WinEnter * call s:DimInactiveWindows()
+    au WinEnter * set cursorline
+    au WinLeave * set nocursorline
+  augroup END
+endif
