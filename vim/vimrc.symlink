@@ -130,6 +130,8 @@ autocmd BufNewFile,BufRead *.jade setlocal ft=jade
 autocmd BufNewFile,BufRead *.js.liquid setlocal ft=JavaScript
 "   .scss files use scss syntax
 autocmd BufNewFile,BufRead *.scss.liquid setlocal ft=scss
+"   Guardfile files use ruby syntax
+autocmd BufNewFile,BufRead Guardfile setlocal ft=ruby
 
 " when pasting over SSH it's a pain to type :set paste and :set nopaste
 " just map it to <f9>
@@ -168,6 +170,9 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'vim-scripts/Auto-Pairs'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'mileszs/ack.vim'
+Plugin 'tpope/vim-eunuch'
+Plugin 'NLKNguyen/papercolor-theme'
+Plugin 'djoshea/vim-autoread'
 "" -- Web Development
 Plugin 'Shutnik/jshint2.vim'
 Plugin 'mattn/emmet-vim'
@@ -212,7 +217,6 @@ let g:ctrlp_custom_ignore = 'node_modules\|bower_components\|DS_Store\|git'
 "let g:ctrlp_user_command = 'find %s -type f'        " MacOSX/Linux
 "let g:ctrlp_user_command = 'dir %s /-n /b /s /a-d'  " Windows
 "let g:ctrlp_user_command = 'dir %s /-n /b /s /a-d'  " Windows
-let g:ctrlp_show_hidden = 1
 "let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
 " use zencoding with <C-E>
@@ -234,10 +238,12 @@ filetype indent on
 autocmd VimResized * wincmd =
 
 " set the color theme to
-colorscheme molokai
+"colorscheme molokai
+set background=dark
+colorscheme PaperColor
 
 "Show trailing whitespaces
-set list listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:-,trail:- 
+"set list listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:-,trail:- 
 " make a mark for column 80
 " and set the mark color to DarkSlateGray
 if exists('+colorcolumn')
