@@ -212,7 +212,7 @@ let g:ctrlp_show_hidden = 1
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
 
-let g:ctrlp_custom_ignore = 'node_modules\|bower_components\|DS_Store\|git'
+let g:ctrlp_custom_ignore = 'node_modules\|bower_components\|DS_Store\|git\|dist'
 
 "let g:ctrlp_user_command = 'find %s -type f'        " MacOSX/Linux
 "let g:ctrlp_user_command = 'dir %s /-n /b /s /a-d'  " Windows
@@ -282,10 +282,11 @@ endfunction
 autocmd WinEnter * call NERDTreeQuit()
 
 " Ctrl-j/k deletes blank line below/above, and Alt-j/k inserts.
-nnoremap <silent><C-j> m`:silent +g/\m^\s*$/d<CR>``:noh<CR>
-nnoremap <silent><C-k> m`:silent -g/\m^\s*$/d<CR>``:noh<CR>
-nnoremap <silent><A-j> :set paste<CR>m`o<Esc>``:set nopaste<CR>
-nnoremap <silent><A-k> :set paste<CR>m`O<Esc>``:set nopaste<CR>
+nnoremap <silent>J m`:silent +g/\m^\s*$/d<CR>``:noh<CR>
+nnoremap <silent>K m`:silent -g/\m^\s*$/d<CR>``:noh<CR>
+nnoremap <silent>“ :set paste<CR>m`o<Esc>``:set nopaste<CR>
+nnoremap <silent>‘ :set paste<CR>m`O<Esc>``:set nopaste<CR>
+
 
 " Use kj to exit insert mode
 inoremap kj <esc>
