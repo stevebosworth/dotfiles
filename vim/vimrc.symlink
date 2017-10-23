@@ -173,6 +173,7 @@ Plugin 'mileszs/ack.vim'
 Plugin 'tpope/vim-eunuch'
 Plugin 'NLKNguyen/papercolor-theme'
 Plugin 'djoshea/vim-autoread'
+Plugin 'ctrlpvim/ctrlp.vim'
 "" -- Web Development
 Plugin 'Shutnik/jshint2.vim'
 Plugin 'mattn/emmet-vim'
