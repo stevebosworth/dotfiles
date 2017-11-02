@@ -42,6 +42,8 @@ set smartcase
 " non-typed comments
 set lazyredraw
 
+" allow scrolling with the mouse
+set mouse=a
 " ---------------------- CUSTOMIZATION ----------------------
 "  The following are some extra mappings/configs to enhance my personal
 "  VIM experience
