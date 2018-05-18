@@ -17,3 +17,15 @@ alias gco='git checkout'
 alias gcb='git copy-branch-name'
 alias gb='git branch'
 alias gs='git status -sb' # upgrade your git if -sb breaks for you. it's fun.
+
+
+# Push current branch to remote origin
+function gpffs () {
+  branch=`git rev-parse --abbrev-ref HEAD`
+
+  echo Force pushing to origin/$branch
+
+  git push origin +$branch
+}
+
+
