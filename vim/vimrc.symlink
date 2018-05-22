@@ -12,6 +12,7 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'ervandew/supertab'
 Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-rhubarb.git'
 Plugin 'vim-scripts/Auto-Pairs'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'mileszs/ack.vim'
@@ -21,8 +22,8 @@ Plugin 'djoshea/vim-autoread'
 Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plugin 'junegunn/fzf.vim'
 Plugin 'bronson/vim-trailing-whitespace'
-Plugin 'neilagabriel/vim-geeknote'
-Plugin 'vim-syntastic/syntastic'
+"Plugin 'neilagabriel/vim-geeknote'
+"Plugin 'vim-syntastic/syntastic'
 Plugin 'neomake/neomake'
 Plugin 'itchyny/lightline.vim'
 Plugin 'kien/rainbow_parentheses.vim'
@@ -133,8 +134,8 @@ set scrolloff=3
 set expandtab       " use spaces instead of tabs
 set autoindent      " autoindent based on line above, works most of the time
 set smartindent     " smarter indent for C-like languages
-set shiftwidth=2    " when reading, tabs are 4 spaces
-set softtabstop=2   " in insert mode, tabs are 4 spaces
+set shiftwidth=2    " when reading, tabs are 2 spaces
+set softtabstop=2   " in insert mode, tabs are 2 spaces
 
 " use <C-Space> for Vim's keyword autocomplete
 "  ...in the terminal
@@ -206,6 +207,11 @@ endif
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
+
+"Set folding to indent by default
+set foldmethod=indent
+set foldlevel=20
+
 " ---------------------- PLUGIN CONFIGURATION ----------------------
 map <C-n> :NERDTreeToggle<CR>
 map <leader>n :NERDTreeFind<CR>
@@ -274,14 +280,21 @@ autocmd WinEnter * call NERDTreeQuit()
   "let g:syntastic_javascript_eslint_exe = 'node_modules/.bin/eslint'
 "endif
 
-" ---------------------- Syntastic Setup ----------------------
+" ---------------------- Neomake Setup ----------------------
 autocmd! BufWritePost *.js Neomake
-let g:neomake_verbose=3
-let g:neomake_open_list = 2
+call neomake#configure#automake('nw', 750)
+"let g:neomake_verbose=3
+"let g:neomake_open_list = 2
 let g:neomake_javascript_enabled_makers = ['eslint']
 let g:neomake_javascript_eslint_maker = {
     \ 'exe': './node_modules/.bin/eslint',
     \ }
+let g:neomake_css_enabled_makers = ['stylelint']
+let g:neomake_css_stylelint_maker = {
+    \ 'exe': './node_modules/.bin/stylelint',
+    \ }
+
+let g:neomake_yaml_enabled_makers = ['yamllint']
 
 " ---------------------- Rainbow Parentheses Setup ----------------------
 au VimEnter * RainbowParenthesesToggle
