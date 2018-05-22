@@ -25,6 +25,7 @@ Plugin 'neilagabriel/vim-geeknote'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'neomake/neomake'
 Plugin 'itchyny/lightline.vim'
+Plugin 'kien/rainbow_parentheses.vim'
 "" -- Web Development
 Plugin 'mattn/emmet-vim'
 Plugin 'hail2u/vim-css3-syntax'
@@ -281,6 +282,12 @@ let g:neomake_javascript_enabled_makers = ['eslint']
 let g:neomake_javascript_eslint_maker = {
     \ 'exe': './node_modules/.bin/eslint',
     \ }
+
+" ---------------------- Rainbow Parentheses Setup ----------------------
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
 
 " ---------------------- KEY REMAPPING ----------------------
 
