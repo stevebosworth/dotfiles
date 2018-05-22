@@ -78,17 +78,12 @@ if [ "$ZSH_THEME" = "random" ]; then
   source "$RANDOM_THEME"
   echo "[oh-my-zsh] Random theme '$RANDOM_THEME' loaded..."
 else
-  echo "custom = $ZSH_CUSTOM theme = $ZSH_THEME.zsh-theme"
-
   if [ ! "$ZSH_THEME" = ""  ]; then
     if [ -f "$ZSH_CUSTOM/$ZSH_THEME.zsh-theme" ]; then
-      echo "Theme loaded from $ZSH_CUSTOM/$ZSH_THEME.zsh-theme"
       source "$ZSH_CUSTOM/$ZSH_THEME.zsh-theme"
     elif [ -f "$ZSH_CUSTOM/themes/$ZSH_THEME.zsh-theme" ]; then
-      echo "Theme loaded from $ZSH_CUSTOM/themes/$ZSH_THEME.zsh-theme"
       source "$ZSH_CUSTOM/themes/$ZSH_THEME.zsh-theme"
     else
-      echo "Theme loaded from $ZSH/themes/$ZSH_THEME.zsh-theme"
       source "$ZSH/themes/$ZSH_THEME.zsh-theme"
     fi
   fi
