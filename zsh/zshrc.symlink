@@ -39,13 +39,13 @@ ZSH_THEME=hipster
 # HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
+ZSH_CUSTOM=$HOME/.dotfiles/zsh/custom
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git sublime svn rails ruby mygit)
+plugins=(git svn rails ruby mygit)
 
 # User configuration
 
@@ -112,8 +112,6 @@ export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 
 REACT_EDITOR=atom
 
-function gs() { git pull origin $1 && git rebase -i `git merge-base origin/$1 @`}
-
 function smartresize() {
    mogrify -path $3 -filter Triangle -define filter:support=2 -thumbnail $2 -unsharp 0.25x0.08+8.3+0.045 -dither None -posterize 136 -quality 82 -define jpeg:fancy-upsampling=off -define png:compression-filter=5 -define png:compression-level=9 -define png:compression-strategy=1 -define png:exclude-chunk=all -interlace none -colorspace sRGB $1
 }
@@ -121,9 +119,6 @@ function smartresize() {
 function ngrokShop () { ngrok http -subdomain=steve -host-header=$1.myshopify.io $1.myshopify.io:80 }
 
 function ngrokSteve () { ngrok http -subdomain=steve -host-header=$1 $1 }
-
-[ -f /opt/dev/dev.sh ] && source /opt/dev/dev.sh
-
 
 # tabtab source for yo package
 # uninstall by removing these lines or running `tabtab uninstall yo`
