@@ -3,7 +3,7 @@
 ## dotfiles
 
 
-These are my dotfiles forked from [Zach Holman's]() dotfiles.
+These are my dotfiles forked from [Zach Holman's](https://github.com/holman/dotfiles.git ) dotfiles.
 
 I've added a bunch of my own customizations so you should consider forking
 Zach's dotfiles and starting from there.
