@@ -1,4 +1,4 @@
-export PATH="/usr/local/opt/python/libexec/bin:/Users/steveb/.nvm/v0.10.30/bin:/usr/local/bin:/usr/local/bin/git:/usr/bin:/bin:/usr/sbin:/sbin:/Users/steveb/.rvm/bin:/Users/steveb/.rvm/bin:/Users/steveb/Applications/utils"
+export PATH="/usr/local/opt/python/libexec/bin:/usr/local/bin:/usr/local/bin/git:/usr/bin:/bin:/usr/sbin:/sbin:/Users/steveb/.rvm/bin:/Users/steveb/.rvm/bin:/Users/steveb/Applications/utils"
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
