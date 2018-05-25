@@ -17,8 +17,8 @@ defaults write com.apple.Finder FXPreferredViewStyle Nlsv
 chflags nohidden ~/Library
 
 # Set a really fast key repeat.
-defaults write NSGlobalDomain KeyRepeat -int 1
-defaults write NSGlobalDomain InitialKeyRepeat -int 12 # normal minimum is 15 (225 ms)
+defaults write NSGlobalDomain KeyRepeat -int 1.1
+defaults write NSGlobalDomain InitialKeyRepeat -int 15 # normal minimum is 15 (225 ms)
 
 # Set the Finder prefs for showing a few different volumes on the Desktop.
 defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true

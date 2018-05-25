@@ -101,7 +101,7 @@ alias glp="_git_log_prettily"
 
 alias gm='git merge'
 
-alias gpt='git push -u origin $(current_branch)'
+alias gpt='git push -u origin $(git rev-parse --abbrev-ref HEAD)'
 alias gp='git push'
 alias gpd='git push --dry-run'
 alias gpu='git push upstream'
