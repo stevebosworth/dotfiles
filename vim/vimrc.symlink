@@ -26,6 +26,7 @@ Plugin 'bronson/vim-trailing-whitespace'
 "Plugin 'vim-syntastic/syntastic'
 Plugin 'neomake/neomake'
 Plugin 'itchyny/lightline.vim'
+Plugin 'kien/rainbow_parentheses.vim'
 "" -- Web Development
 Plugin 'mattn/emmet-vim'
 Plugin 'hail2u/vim-css3-syntax'
@@ -294,6 +295,12 @@ let g:neomake_css_stylelint_maker = {
     \ }
 
 let g:neomake_yaml_enabled_makers = ['yamllint']
+
+" ---------------------- Rainbow Parentheses Setup ----------------------
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
 
 " ---------------------- KEY REMAPPING ----------------------
 
