@@ -6,6 +6,10 @@ then
   alias git=$hub_path
 fi
 
+function currentBranch () {
+  echo `git rev-parse --abbrev-ref HEAD`
+}
+
 # The rest of my fun git aliases
 alias gl='git pull --prune'
 alias glog="git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
@@ -25,13 +29,11 @@ alias ge='git-edit-new'
 
 # Push current branch to remote origin
 function gpffs () {
-  branch=`git rev-parse --abbrev-ref HEAD`
 
-  echo Force pushing to origin/$branch
+  echo Force pushing to origin/$(currentBranch)
 
-  git push origin +$branch
+  git push origin +$(currentBranch)
 }
-
 
 #
 # Aliases
@@ -101,7 +103,7 @@ alias glp="_git_log_prettily"
 
 alias gm='git merge'
 
-alias gpt='git push -u origin $(git rev-parse --abbrev-ref HEAD)'
+alias gpt='git push -u origin $(currentBranch)'
 alias gp='git push'
 alias gpd='git push --dry-run'
 alias gpu='git push upstream'
@@ -116,6 +118,7 @@ alias grbs='git rebase --skip'
 
 alias grh='git reset HEAD'
 alias grhh='git reset HEAD --hard'
+alias grhr='git reset --hard origin/$(currentBranch)'
 
 alias gsta='git stash save'
 alias gstaa='git stash apply'
