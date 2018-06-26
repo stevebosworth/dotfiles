@@ -5,6 +5,7 @@ tap 'puma/puma'
 
 brew 'ack'
 brew 'fzf'
+brew 'ripgrep'
 brew 'thefuck'
 brew 'tmux'
 brew 'neovim'
