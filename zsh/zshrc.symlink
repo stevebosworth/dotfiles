@@ -32,6 +32,9 @@ done
 autoload -U compinit
 compinit
 
+#disable auto correct
+unsetopt correct
+
 # load every completion after autocomplete loads
 for file in ${(M)config_files:#*/completion.zsh}
 do
