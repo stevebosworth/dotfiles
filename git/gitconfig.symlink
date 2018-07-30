@@ -35,3 +35,7 @@
 
 [branch]
         autosetuprebase = always
+[init]
+	templatedir = ~/.git_template
+[alias]
+	ctags = !.git/hooks/ctags

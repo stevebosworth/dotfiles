@@ -296,6 +296,9 @@ let g:neomake_css_stylelint_maker = {
 
 let g:neomake_yaml_enabled_makers = ['yamllint']
 
+" ---------------------- Ctags ----------------------
+nnoremap <leader>. :CtrlPTag<cr>
+
 " ---------------------- Rainbow Parentheses Setup ----------------------
 let g:rbpt_colorpairs = [
     \ ['brown',       'RoyalBlue3'],
