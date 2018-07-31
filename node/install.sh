@@ -1,4 +1,9 @@
-if test ! $(which spoof)
+if test ! $(which yarn)
 then
-  sudo npm install spoof -g
+  local npm_packages = `cat ../Nodefile`
+  string_packages=$( printf "%s " "${npm_packages[@]}" )
+
+  echo string_packages
+else
+  echo 'no yarn installed'
 fi
