@@ -26,6 +26,7 @@ Plugin 'w0rp/ale'
 Plugin 'itchyny/lightline.vim'
 Plugin 'maximbaz/lightline-ale'
 Plugin 'kien/rainbow_parentheses.vim'
+Plugin 'majutsushi/tagbar'
 "" -- Web Development
 Plugin 'mattn/emmet-vim'
 Plugin 'hail2u/vim-css3-syntax'
@@ -303,6 +304,8 @@ let g:ale_sign_column_always = 1
 
 " ---------------------- Ctags ----------------------
 
+nmap <leader>t :TagbarToggle<CR>
+
 " ---------------------- Rainbow Parentheses Setup ----------------------
 let g:rbpt_colorpairs = [
     \ ['brown',       'RoyalBlue3'],
@@ -389,8 +392,6 @@ nnoremap <leader>a :Ack!<Space>
 nnoremap <C-b> :Buffers<CR>
 nnoremap <C-f> :Lines<CR>
 nnoremap <leader>m :History<CR>
-
-nnoremap <leader>. :CtrlPTag<cr>
 
 nmap <leader>d <Plug>(ale_fix)
 nmap <leader>l <Plug>(ale_lint)
