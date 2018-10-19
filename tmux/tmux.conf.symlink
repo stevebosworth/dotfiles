@@ -6,3 +6,9 @@ setw -g mode-keys vi
 
 # Center the window list
 set -g status-justify centre
+
+# remap prefix to Control + a
+set -g prefix C-a
+# bind 'C-a C-a' to type 'C-a'
+bind C-a send-prefix
+unbind C-b
