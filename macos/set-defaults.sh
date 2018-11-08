@@ -37,3 +37,8 @@ defaults write com.apple.Safari IncludeDevelopMenu -bool true
 defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
 defaults write com.apple.Safari "com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled" -bool true
 defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
+
+# Setup VS Code defaults
+defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false         # For VS Code
+$ defaults write com.microsoft.VSCodeInsiders ApplePressAndHoldEnabled -bool false # For VS Code Insider
+$ defaults delete -g ApplePressAndHoldEnabled                                      # If necessary, reset global default

@@ -32,12 +32,14 @@ Plugin 'mattn/emmet-vim'
 Plugin 'hail2u/vim-css3-syntax'
 Plugin 'othree/html5.vim'
 Plugin 'briancollins/vim-jst'
+Plugin 'jparise/vim-graphql'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
 Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-liquid'
 Plugin 'nickng/vim-scribble'
 Plugin 'heavenshell/vim-jsdoc'
+Plugin 'styled-components/vim-styled-components'
 
 " end plugin definition
 call vundle#end()            " required for vundle
@@ -226,7 +228,7 @@ let g:fzf_action = {
 if executable('ag')
   "Use ag over grep
   set grepprg=ag\ --nogroup\ --nocolor
-  let g:ackprg = 'ag --nogroup --nocolor --column'
+  let g:ackprg = 'ag --nogroup --nocolor --column --ignore-dir={node_modules,dist,.git}'
 endif
 
 " ---------------------- NERDTree Setup ----------------------
