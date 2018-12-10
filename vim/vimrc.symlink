@@ -21,12 +21,13 @@ Plugin 'NLKNguyen/papercolor-theme'
 Plugin 'djoshea/vim-autoread'
 Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plugin 'junegunn/fzf.vim'
-Plugin 'bronson/vim-trailing-whitespace'
+Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'w0rp/ale'
 Plugin 'itchyny/lightline.vim'
 Plugin 'maximbaz/lightline-ale'
 Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'majutsushi/tagbar'
+Plugin 'janko-m/vim-test'
 "" -- Web Development
 Plugin 'mattn/emmet-vim'
 Plugin 'hail2u/vim-css3-syntax'
@@ -89,12 +90,16 @@ set lazyredraw
 
 " allow scrolling with the mouse
 set mouse=a
+
+" Allow project specific vimrc
+set exrc
+
 " ---------------------- CUSTOMIZATION ----------------------
 "  The following are some extra mappings/configs to enhance my personal
 "  VIM experience
 
 " set , as mapleader
-let mapleader = " "
+let mapleader = ","
 
 " map <leader>q and <leader>w to buffer prev/next buffer
 noremap <leader>q :bp<CR>
@@ -155,11 +160,6 @@ autocmd BufNewFile,BufRead *.js.liquid setlocal ft=JavaScript
 autocmd BufNewFile,BufRead *.scss.liquid setlocal ft=scss
 "   Guardfile files use ruby syntax
 autocmd BufNewFile,BufRead Guardfile setlocal ft=ruby
-
-augroup FiletypeGroup
-    autocmd!
-    au BufNewFile,BufRead *.jsx set filetype=javascript.jsx
-augroup END
 
 " when pasting over SSH it's a pain to type :set paste and :set nopaste
 " just map it to <f9>
@@ -303,8 +303,17 @@ let g:ale_fixers = {
   \ }
 
 let g:ale_sign_column_always = 1
-let g:ale_fix_on_save = 1
+let g:ale_fix_on_save = 0
 let g:ale_javascript_prettier_use_local_config = 1
+let g:ale_linters_explicit = 1
+
+" ---------------------- Vim Test ----------------------
+
+nmap <silent> t<C-n> :TestNearest<CR>
+nmap <silent> t<C-f> :TestFile<CR>
+nmap <silent> t<C-s> :TestSuite<CR>
+nmap <silent> t<C-l> :TestLast<CR>
+nmap <silent> t<C-g> :TestVisit<CR>
 
 " ---------------------- Ctags ----------------------
 
@@ -337,6 +346,11 @@ au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
+
+" ---------------------- Better Whitespace ----------------------
+
+let g:better_whitespace_enabled=1
+let g:strip_whitespace_on_save=1
 
 " ---------------------- KEY REMAPPING ----------------------
 
@@ -377,6 +391,7 @@ inoremap LL <Esc>A
 
 nnoremap ss i<space><esc>
 
+" reset case switching
 vmap u <nop>
 vmap U <nop>
 
@@ -514,6 +529,6 @@ augroup reload_vimrc " {
     autocmd BufWritePost $MYVIMRC source $MYVIMRC
 augroup END " }
 
-" Autoload files after change
-
+" set secure to protect project specific vimrc
+set secure
 
