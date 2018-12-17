@@ -35,6 +35,15 @@ function gpffs () {
   git push origin +$(currentBranch)
 }
 
+function gpst () {
+  if [[ $1 == *"staging"* ]]; then
+    echo Force pushing to staging branch: origin/$1
+    git push origin +@:$1
+  else
+    echo "You much push to a branch which contains 'staging'"
+  fi
+}
+
 #
 # Aliases
 # (sorted alphabetically) taken from https://github.com/robbyrussell/oh-my-zsh/blob/master/plugins/git/git.plugin.zsh

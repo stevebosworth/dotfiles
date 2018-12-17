@@ -8,6 +8,7 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'vim-scripts/L9'
 Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-ragtag'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'ervandew/supertab'
@@ -28,6 +29,7 @@ Plugin 'maximbaz/lightline-ale'
 Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'majutsushi/tagbar'
 Plugin 'janko-m/vim-test'
+Plugin 'roman/golden-ratio'
 "" -- Web Development
 Plugin 'mattn/emmet-vim'
 Plugin 'hail2u/vim-css3-syntax'
@@ -211,6 +213,16 @@ set foldlevel=20
 
 " ---------------------- PLUGIN CONFIGURATION ----------------------
 
+" ---------------------- Golden Ratio Setup ----------------------
+let g:golden_ratio_exclude_nonmodifiable = 1
+let g:golden_ratio_autocommand = 0
+
+
+nmap <leader>g <Plug>(golden_ratio_resize)
+
+" ---------------------- Ragtag Setup ----------------------
+let g:ragtag_global_maps = 1
+
 " ---------------------- FZF Setup ----------------------
 let g:fzf_action = {
       \ 'ctrl-s': 'split',
@@ -230,6 +242,8 @@ if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor
   let g:ackprg = 'ag --nogroup --nocolor --column --ignore-dir={node_modules,dist,.git}'
 endif
+
+nnoremap <leader>a :Ack!<Space>
 
 " ---------------------- NERDTree Setup ----------------------
 map <C-n> :NERDTreeToggle<CR>
@@ -268,35 +282,6 @@ let g:user_emmet_settings = {
     \  },
   \}
 
-
-" ---------------------- Syntastic Setup ----------------------
-"let g:syntastic_always_populate_loc_list = 1
-"let g:syntastic_auto_loc_list = 1
-"let g:syntastic_check_on_open = 1
-"let g:syntastic_check_on_wq = 0
-"let g:syntastic_javascript_checkers = ['eslint']
-"if executable('node_modules/.bin/eslint')
-  "let g:syntastic_javascript_eslint_exe = 'node_modules/.bin/eslint'
-"endif
-"let g:syntastic_mode_map = { 'mode': 'passive',
-      "\                      'active_filetypes': ['c', 'cpp', 'js', 'jsx'] }
-
-" ---------------------- Neomake Setup ----------------------
-"autocmd! BufWritePost *.js Neomake
-"call neomake#configure#automake('nw', 750)
-""let g:neomake_verbose=3
-""let g:neomake_open_list = 2
-"let g:neomake_javascript_enabled_makers = ['eslint']
-"let g:neomake_javascript_eslint_maker = {
-    "\ 'exe': './node_modules/.bin/eslint',
-    "\ }
-"let g:neomake_css_enabled_makers = ['stylelint']
-"let g:neomake_css_stylelint_maker = {
-    "\ 'exe': './node_modules/.bin/stylelint',
-    "\ }
-
-"let g:neomake_yaml_enabled_makers = ['yamllint']
-
 " ---------------------- Ale Setup ----------------------
 let g:ale_fixers = {
   \ 'javascript': ['prettier']
@@ -306,6 +291,9 @@ let g:ale_sign_column_always = 1
 let g:ale_fix_on_save = 0
 let g:ale_javascript_prettier_use_local_config = 1
 let g:ale_linters_explicit = 1
+
+nmap <leader>d <Plug>(ale_fix)
+nmap <leader>l <Plug>(ale_lint)
 
 " ---------------------- Vim Test ----------------------
 
@@ -407,13 +395,9 @@ nnoremap <leader>P "+P
 vnoremap <leader>p "+p
 vnoremap <leader>P "+P
 
-nnoremap <leader>a :Ack!<Space>
 nnoremap <C-b> :Buffers<CR>
 nnoremap <C-f> :Lines<CR>
 nnoremap <leader>m :History<CR>
-
-nmap <leader>d <Plug>(ale_fix)
-nmap <leader>l <Plug>(ale_lint)
 
 vnoremap // y/\V<C-r>=escape(@",'/\')<CR><CR>
 

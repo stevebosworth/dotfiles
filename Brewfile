@@ -31,8 +31,9 @@ brew 'mongodb'
 brew 'spark'
 brew 'unrar'
 brew 'wget'
-brew 'yarn'
+brew 'yarne
 brew 'youtube-dl'
+brew 'mkcert'
 
 cask 'iterm2'
 cask '1password'
