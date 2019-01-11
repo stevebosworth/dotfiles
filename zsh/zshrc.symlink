@@ -32,6 +32,9 @@ done
 autoload -U compinit
 compinit
 
+# allow autocomplete for aliased commands
+setopt no_complete_aliases
+
 #disable auto correct
 unsetopt correct
 

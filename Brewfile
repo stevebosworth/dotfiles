@@ -5,6 +5,7 @@ tap 'puma/puma'
 
 brew 'ack'
 brew 'fzf'
+brew 'git --without-completions'
 brew 'ripgrep'
 brew 'thefuck'
 brew 'tmux'
@@ -34,6 +35,7 @@ brew 'wget'
 brew 'yarne
 brew 'youtube-dl'
 brew 'mkcert'
+brew 'joplin'
 
 cask 'iterm2'
 cask '1password'
