@@ -402,6 +402,8 @@ nnoremap <leader>m :History<CR>
 
 vnoremap // y/\V<C-r>=escape(@",'/\')<CR><CR>
 
+command! PrettyJSON %!jq '.'
+
 " ---------------------- LightLine ----------------------
 
 let g:lightline = {
