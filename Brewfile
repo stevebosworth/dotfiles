@@ -32,7 +32,7 @@ brew 'mongodb'
 brew 'spark'
 brew 'unrar'
 brew 'wget'
-brew 'yarne
+brew 'yarn'
 brew 'youtube-dl'
 brew 'mkcert'
 brew 'joplin'

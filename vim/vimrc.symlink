@@ -30,6 +30,7 @@ Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'majutsushi/tagbar'
 Plugin 'janko-m/vim-test'
 Plugin 'roman/golden-ratio'
+Plugin 'Konfekt/vim-alias'
 "" -- Web Development
 Plugin 'mattn/emmet-vim'
 Plugin 'hail2u/vim-css3-syntax'
