@@ -35,7 +35,7 @@ function gpffs () {
   git push origin +$(currentBranch)
 }
 
-function gpst () {
+function gpstaging () {
   if [[ $1 == *"staging"* ]]; then
     echo Force pushing to staging branch: origin/$1
     git push origin +@:$1
