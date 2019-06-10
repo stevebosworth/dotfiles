@@ -282,12 +282,16 @@ let g:user_emmet_settings = {
 " ---------------------- Ale Setup ----------------------
 let g:ale_fixers = {
   \ 'javascript': ['prettier'],
+  \ 'css': ['stylelint'],
+  \ 'scss': ['stylelint'],
   \ 'html': ['prettier']
   \ }
 
 let g:ale_linters = {
   \'ruby': ['rubocop'],
-  \'javascript': ['prettier']
+  \ 'css': ['stylelint'],
+  \ 'scss': ['stylelint'],
+  \ 'javascript': ['prettier']
   \ }
 let g:ale_ruby_rubocop_executable = 'bundle'  "use local bundle exec version
 let g:ale_lint_on_text_changed = 0
