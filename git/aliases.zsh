@@ -27,6 +27,18 @@ alias gst='git status -sb' # upgrade your git if -sb breaks for you. it's fun.
 alias gac='git add -A && git commit -m'
 alias ge='git-edit-new'
 
+#
+# My Aliases and Functions
+#
+
+alias greb='git for-each-ref --sort=-committerdate --count=10 --format="%(refname:short)" refs/heads/'
+alias gdm='git diff $(git merge-base HEAD origin/master)'
+
+# DOESN'T WORK ¯\_(ツ)_/¯
+function gbd () {
+  git diff $(git merge-base HEAD origin/$1)
+}
+
 # Push current branch to remote origin
 function gpffs () {
 
@@ -55,8 +67,6 @@ alias ga='git add'
 alias gaa='git add --all'
 alias gb='git branch'
 alias gba='git branch -a'
-alias gbd='git branch -d'
-alias gbD='git branch -D'
 alias gbda='git branch --no-color --merged | command grep -vE "^(\*|\s*(master|develop|dev)\s*$)" | command xargs -n 1 git branch -d'
 alias gbl='git blame -b -w'
 alias gbnm='git branch --no-merged'

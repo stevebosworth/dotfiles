@@ -44,6 +44,7 @@ Plugin 'tpope/vim-liquid'
 Plugin 'nickng/vim-scribble'
 Plugin 'heavenshell/vim-jsdoc'
 Plugin 'styled-components/vim-styled-components'
+Plugin 'ap/vim-css-color'
 
 " end plugin definition
 call vundle#end()            " required for vundle
@@ -225,17 +226,12 @@ nmap <leader>g <Plug>(golden_ratio_resize)
 let g:ragtag_global_maps = 1
 
 " ---------------------- FZF Setup ----------------------
-let g:fzf_action = {
-      \ 'ctrl-s': 'split',
-      \ 'ctrl-v': 'vsplit'
-      \ }
-
 nnoremap <c-p> :FZF<cr>
 nnoremap <C-p> :FZF<cr>
 
 let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
-  \ 'ctrl-x': 'split',
+  \ 'ctrl-s': 'split',
   \ 'ctrl-v': 'vsplit' }
 
 if executable('ag')
@@ -286,8 +282,21 @@ let g:user_emmet_settings = {
 " ---------------------- Ale Setup ----------------------
 let g:ale_fixers = {
   \ 'javascript': ['prettier'],
+  \ 'css': ['stylelint'],
+  \ 'scss': ['stylelint'],
   \ 'html': ['prettier']
   \ }
+
+let g:ale_linters = {
+  \'ruby': ['rubocop'],
+  \ 'css': ['stylelint'],
+  \ 'scss': ['stylelint'],
+  \ 'javascript': ['prettier']
+  \ }
+let g:ale_ruby_rubocop_executable = 'bundle'  "use local bundle exec version
+let g:ale_lint_on_text_changed = 0
+let g:ale_lint_on_enter = 0
+let g:ale_lint_on_save = 1
 
 let g:ale_sign_column_always = 1
 let g:ale_fix_on_save = 0
@@ -398,7 +407,11 @@ nnoremap <leader>m :History<CR>
 
 vnoremap // y/\V<C-r>=escape(@",'/\')<CR><CR>
 
+vnoremap //r "hy:%s/<C-r>h//g<left><left>
+
 command! PrettyJSON %!jq '.'
+command! PrettyHTML !tidy -mi -html -wrap 0 %
+command! PrettyXML !tidy -mi -xml -wrap 0 %
 
 " ---------------------- LightLine ----------------------
 
