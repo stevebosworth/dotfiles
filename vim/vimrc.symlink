@@ -240,7 +240,11 @@ if executable('ag')
   let g:ackprg = 'ag --nogroup --nocolor --column --ignore-dir={node_modules,dist,.git}'
 endif
 
+
+" ---------------------- Text find and replace Setup ----------------------
 nnoremap <leader>a :Ack!<Space>
+
+nnoremap <C-f> :Ack! "<C-R><C-W>"
 
 " ---------------------- NERDTree Setup ----------------------
 map <C-n> :NERDTreeToggle<CR>
@@ -402,7 +406,6 @@ vnoremap <leader>p "+p
 vnoremap <leader>P "+P
 
 nnoremap <C-b> :Buffers<CR>
-nnoremap <C-f> :Lines<CR>
 nnoremap <leader>m :History<CR>
 
 vnoremap // y/\V<C-r>=escape(@",'/\')<CR><CR>

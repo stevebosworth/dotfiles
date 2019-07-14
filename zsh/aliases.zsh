@@ -11,5 +11,5 @@ alias copyjs="pbpaste | highlight --font Menlo --font-size 24 --style solarized-
 alias copyhtml="pbpaste | highlight --font Menlo --font-size 24 --style solarized-dark --syntax=html -O rtf | pbcopy"
 alias copycss="pbpaste | highlight --font Menlo --font-size 24 --style solarized-dark --syntax=css -O rtf | pbcopy"
 alias copyliquid="pbpaste | highlight --font Menlo --font-size 24 --style solarized-dark --syntax=liquid -O rtf | pbcopy"
-alias notes="cd ~/Dropbox\ (Personal)/Notes; nvim"
+alias notes="cd ~/Dropbox/Notes && nvim"
 alias be="bundle exec"
