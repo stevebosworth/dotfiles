@@ -13,3 +13,4 @@ alias copycss="pbpaste | highlight --font Menlo --font-size 24 --style solarized
 alias copyliquid="pbpaste | highlight --font Menlo --font-size 24 --style solarized-dark --syntax=liquid -O rtf | pbcopy"
 alias notes="cd ~/Dropbox/Notes && nvim"
 alias be="bundle exec"
+alias weather="curl http://v2.wttr.in"

@@ -41,10 +41,9 @@ function gbd () {
 
 # Push current branch to remote origin
 function gpffs () {
+  echo Force pushing with lease to origin/$(currentBranch)
 
-  echo Force pushing to origin/$(currentBranch)
-
-  git push origin +$(currentBranch)
+  git push origin $(currentBranch) --force-with-lease
 }
 
 function gpstaging () {

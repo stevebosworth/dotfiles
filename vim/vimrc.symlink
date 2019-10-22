@@ -16,6 +16,7 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
+Plug 'tpope/vim-dispatch'
 Plug 'vim-scripts/Auto-Pairs'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'mileszs/ack.vim'
@@ -30,9 +31,9 @@ Plug 'itchyny/lightline.vim'
 Plug 'maximbaz/lightline-ale'
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'majutsushi/tagbar'
-Plug 'janko-m/vim-test'
 Plug 'Konfekt/vim-alias'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'janko/vim-test'
 "" -- Web Development
 Plug 'mattn/emmet-vim'
 Plug 'hail2u/vim-css3-syntax'
@@ -217,6 +218,25 @@ set foldlevel=20
 
 " ---------------------- PLUGIN CONFIGURATION ----------------------
 
+" ---------------------- NerdCommenter ----------------------
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+
+" Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
+
+" Align line-wise comment delimiters flush left instead of following code indentation
+let g:NERDDefaultAlign = 'left'
+
+" Allow commenting and inverting empty lines (useful when commenting a region)
+let g:NERDCommentEmptyLines = 1
+
+" Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1
+
+" Enable NERDCommenterToggle to check all selected lines is commented or not
+let g:NERDToggleCheckAllLines = 1
+
 " ---------------------- Golden Ratio Setup ----------------------
 let g:golden_ratio_exclude_nonmodifiable = 1
 let g:golden_ratio_autocommand = 0
@@ -317,14 +337,14 @@ let g:ale_fixers = {
   \ 'javascript': ['prettier'],
   \ 'css': ['stylelint'],
   \ 'scss': ['stylelint'],
-  \ 'html': ['prettier']
+  \ 'html': ['prettier'],
+  \ 'json': ['prettier']
   \ }
-
 let g:ale_linters = {
   \'ruby': ['rubocop'],
   \ 'css': ['stylelint'],
   \ 'scss': ['stylelint'],
-  \ 'javascript': ['prettier']
+  \ 'javascript': ['stylelint']
   \ }
 let g:ale_ruby_rubocop_executable = 'bundle'  "use local bundle exec version
 let g:ale_lint_on_text_changed = 0
@@ -340,6 +360,9 @@ nmap <leader>d <Plug>(ale_fix)
 nmap <leader>l <Plug>(ale_lint)
 
 " ---------------------- Vim Test ----------------------
+
+" set test strategy for vim-test
+let test#strategy = "dispatch"
 
 nmap <silent> t<C-n> :TestNearest<CR>
 nmap <silent> t<C-f> :TestFile<CR>
