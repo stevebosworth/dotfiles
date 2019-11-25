@@ -34,7 +34,7 @@ Plug 'majutsushi/tagbar'
 Plug 'Konfekt/vim-alias'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'janko/vim-test'
-"" -- Web Development
+" -- Web Development
 Plug 'mattn/emmet-vim'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'othree/html5.vim'
@@ -48,6 +48,10 @@ Plug 'nickng/vim-scribble'
 Plug 'heavenshell/vim-jsdoc'
 Plug 'styled-components/vim-styled-components'
 Plug 'ap/vim-css-color'
+
+" -- Python Dev
+Plug 'vim-scripts/indentpython.vim'
+
 
 call plug#end()
 
@@ -168,6 +172,20 @@ autocmd BufNewFile,BufRead *.scss.liquid setlocal ft=scss
 "   Guardfile files use ruby syntax
 autocmd BufNewFile,BufRead Guardfile setlocal ft=ruby
 
+au BufNewFile,BufRead *.py
+    \ setlocal ft=python
+    \ setlocal tabstop=4
+    \ setlocal softtabstop=4
+    \ setlocal shiftwidth=4
+    \ setlocal textwidth=79
+    \ setlocal expandtab
+    \ setlocal autoindent
+    \ setlocal fileformat=unix
+
+"------------ Python Dev Setup --------------
+
+au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+
 " when pasting over SSH it's a pain to type :set paste and :set nopaste
 " just map it to <f9>
 "set pastetoggle=<f9>
@@ -203,7 +221,7 @@ set list listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:-,trail:-
 " make a mark for column 80
 " and set the mark color to DarkSlateGray
 if exists('+colorcolumn')
-  set colorcolumn=80
+  set colorcolumn=120
 else
   au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
 endif
@@ -215,6 +233,8 @@ let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 "Set folding to indent by default
 set foldmethod=indent
 set foldlevel=20
+
+set selection=exclusive
 
 " ---------------------- PLUGIN CONFIGURATION ----------------------
 
@@ -344,7 +364,7 @@ let g:ale_linters = {
   \'ruby': ['rubocop'],
   \ 'css': ['stylelint'],
   \ 'scss': ['stylelint'],
-  \ 'javascript': ['stylelint']
+  \ 'javascript': ['eslint']
   \ }
 let g:ale_ruby_rubocop_executable = 'bundle'  "use local bundle exec version
 let g:ale_lint_on_text_changed = 0
