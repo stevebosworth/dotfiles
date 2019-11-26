@@ -51,3 +51,5 @@
 	version = 2
 [gc]
 	writeCommitGraph = true
+[credential]
+	helper = osxkeychain
