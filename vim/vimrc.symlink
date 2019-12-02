@@ -287,6 +287,7 @@ endif
 nnoremap <leader>a :Ack!<Space>
 
 nnoremap <C-f> :Ack! "<C-R><C-W>"
+vnoremap <C-f> :Ack! "<C-R><C-W>"
 
 " ---------------------- NERDTree Setup ----------------------
 map <C-n> :NERDTreeToggle<CR>

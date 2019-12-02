@@ -16,6 +16,9 @@ defaults write com.apple.Finder FXPreferredViewStyle Nlsv
 # Show the ~/Library folder.
 chflags nohidden ~/Library
 
+# Unbind play key to
+launchctl unload -w /System/Library/LaunchAgents/com.apple.rcd.plist
+
 # Set a really fast key repeat.
 defaults write NSGlobalDomain KeyRepeat -int 1.1
 defaults write NSGlobalDomain InitialKeyRepeat -int 15 # normal minimum is 15 (225 ms)
@@ -23,6 +26,7 @@ defaults write NSGlobalDomain InitialKeyRepeat -int 15 # normal minimum is 15 (2
 # Set the Finder prefs for showing a few different volumes on the Desktop.
 defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true
 defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true
+defaults write com.apple.finder AppleShowAllFiles -bool true
 
 # Run the screensaver if we're in the bottom-left hot corner.
 defaults write com.apple.dock wvous-bl-corner -int 5
