@@ -34,6 +34,7 @@ Plug 'majutsushi/tagbar'
 Plug 'Konfekt/vim-alias'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'janko/vim-test'
+Plug 'thaerkh/vim-workspace'
 " -- Web Development
 Plug 'mattn/emmet-vim'
 Plug 'hail2u/vim-css3-syntax'
@@ -46,7 +47,6 @@ Plug 'tpope/vim-rails'
 Plug 'tpope/vim-liquid'
 Plug 'nickng/vim-scribble'
 Plug 'heavenshell/vim-jsdoc'
-Plug 'styled-components/vim-styled-components'
 Plug 'ap/vim-css-color'
 
 " -- Python Dev
@@ -391,6 +391,12 @@ nmap <silent> t<C-s> :TestSuite<CR>
 nmap <silent> t<C-l> :TestLast<CR>
 nmap <silent> t<C-g> :TestVisit<CR>
 
+" ---------------------- Workspace Sessions ----------------------
+
+let g:workspace_session_directory = $HOME . '/.vim/sessions/'
+let g:workspace_persist_undo_history = 1  " enabled = 1 (default), disabled = 0
+let g:workspace_undodir='.undodir'
+
 " ---------------------- Ctags ----------------------
 
 nmap <leader>t :TagbarToggle<CR>
@@ -458,8 +464,20 @@ vmap <down> <nop>
 vmap <left> <nop>
 vmap <right> <nop>
 
+" Insert mode bindings
+inoremap <C-h> <Left>
+inoremap <C-j> <Down>
+inoremap <C-k> <Up>
+inoremap <C-l> <Right>
+cnoremap <C-h> <Left>
+cnoremap <C-j> <Down>
+cnoremap <C-k> <Up>
+cnoremap <C-l> <Right>
+
+" Go to send of line and insert
 inoremap LL <Esc>A
 
+" Add space in behind cursor
 nnoremap ss i<space><esc>
 
 " reset case switching
@@ -484,6 +502,7 @@ nnoremap <leader>m :History<CR>
 vnoremap // y/\V<C-r>=escape(@",'/\')<CR><CR>
 
 vnoremap //r "hy:%s/<C-r>h//g<left><left>
+
 
 command! PrettyJSON %!jq '.'
 command! PrettyHTML !tidy -mi -html -wrap 0 %

@@ -16,3 +16,5 @@ export PATH="${GOPATH}/bin:${PATH}"
 ## Python PATH
 export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 
+## Nix PATH
+export NIX_PATH="nixpkgs=/Users/steveb/.nix-defexpr/channels/nixpkgs:/Users/steveb/.nix-defexpr/channels"
