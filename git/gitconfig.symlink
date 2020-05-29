@@ -15,6 +15,7 @@
 [apply]
         whitespace = nowarn
 [mergetool]
+        tool = vimdiff
         keepBackup = false
 [difftool]
         prompt = false
@@ -52,4 +53,4 @@
 [gc]
 	writeCommitGraph = true
 [credential]
-	helper = osxkeychain
+	helper = store --file /opt/dev/var/private/git_credential_store
