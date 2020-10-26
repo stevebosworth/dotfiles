@@ -6,6 +6,7 @@ alias zshrc="nvim ~/.zshrc"
 alias ohmyzsh="nvim ~/.oh-my-zsh"
 alias vimrc="nvim ~/.vimrc"
 alias ng="ngrok http -subdomain=steve"
+alias code="code-insiders"
 
 alias copyjs="pbpaste | highlight --font Menlo --font-size 24 --style solarized-dark --syntax=js -O rtf | pbcopy"
 alias copyhtml="pbpaste | highlight --font Menlo --font-size 24 --style solarized-dark --syntax=html -O rtf | pbcopy"
@@ -14,4 +15,5 @@ alias copyliquid="pbpaste | highlight --font Menlo --font-size 24 --style solari
 alias notes="cd ~/Dropbox/Notes && nvim"
 alias be="bundle exec"
 alias br="bin/rails"
+alias br:nukedb="bin/rails db:drop db:create db:migrate db:seed"
 alias weather="curl http://v2.wttr.in"

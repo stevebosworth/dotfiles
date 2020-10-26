@@ -76,6 +76,8 @@ function ngrokShop () { ngrok http -subdomain=steve -host-header=$1.myshopify.io
 
 function ngrokSteve () { ngrok http -subdomain=steve -host-header=$1 $1:80 }
 
+function ngrokApps () { ngrok http 192.168.64.1:3300 -host-header=apps.myshopify.io -subdomain=steve }
+
 # tabtab source for yo package
 # uninstall by removing these lines or running `tabtab uninstall yo`
 [[ -f /Users/steveb/Codes/slate-cli/node_modules/tabtab/.completions/yo.zsh ]] && . /Users/steveb/Codes/slate-cli/node_modules/tabtab/.completions/yo.zsh
@@ -90,3 +92,4 @@ eval $(thefuck --alias)
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 [ -f /opt/dev/dev.sh ] && source /opt/dev/dev.sh
+if [ -e /Users/steveb/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/steveb/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
