@@ -12,7 +12,6 @@ export GOPATH="$HOME/codes/golang"
 ## THEME KIT
 export PATH="${GOPATH}/bin:${PATH}"
 
-
 ## Python PATH
 export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 

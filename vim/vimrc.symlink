@@ -17,7 +17,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-dispatch'
-Plug 'vim-scripts/Auto-Pairs'
+Plug 'jiangmiao/auto-pairs'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'mileszs/ack.vim'
 Plug 'tpope/vim-eunuch'
@@ -131,7 +131,6 @@ end
 
 " set Ubuntu Mono font as default
 set guifont=Ubuntu\ Mono\ derivative\ Powerline:h15
-
 " allow Tab and Shift+Tab to
 " tab  selection in visual mode
 vmap <Tab> >gv
@@ -272,14 +271,36 @@ nmap <leader>g <Plug>(golden_ratio_resize)
 " ---------------------- Ragtag Setup ----------------------
 let g:ragtag_global_maps = 1
 
+" ---------------------- IndentLine Setup ----------------------
+" IndentLine hides quotes in JSON files
+let g:vim_json_syntax_conceal = 0
+
+
+" ---------------------- AutoPairs Setup ----------------------
+
+let g:AutoPairsFlyMode = 1
+" Jump outside '"({
+let g:AutoPairsShortcutJump = '<M-c>'
+if !exists('g:AutoPairsShortcutJump')
+endif
+
+
 " ---------------------- FZF Setup ----------------------
-nnoremap <c-p> :FZF<cr>
-nnoremap <C-p> :FZF<cr>
+nnoremap <silent> <C-p> :call FZFOpen(':Files')<cr>
+nnoremap <silent> <C-b> :call FZFOpen(':Buffers')<CR>
 
 let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
   \ 'ctrl-s': 'split',
   \ 'ctrl-v': 'vsplit' }
+
+" Prevent fzf from opening a file in the nerd tree buffer
+function! FZFOpen(command_str)
+  if (expand('%') =~# 'NERD_tree' && winnr('$') > 1)
+    exe "normal! \<c-w>\<c-w>"
+  endif
+  exe 'normal! ' . a:command_str . "\<cr>"
+endfunction
 
 if executable('ag')
   "Use ag over grep
@@ -456,6 +477,7 @@ au Syntax * RainbowParenthesesLoadBraces
 
 let g:better_whitespace_enabled=1
 let g:strip_whitespace_on_save=1
+let g:strip_whitespace_confirm=0
 
 " ---------------------- KEY REMAPPING ----------------------
 
@@ -537,7 +559,6 @@ nnoremap <leader>P "+P
 vnoremap <leader>p "+p
 vnoremap <leader>P "+P
 
-nnoremap <C-b> :Buffers<CR>
 nnoremap <leader>m :History<CR>
 
 vnoremap // y/\V<C-r>=escape(@",'/\')<CR><CR>

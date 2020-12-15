@@ -1,0 +1,59 @@
+Script started on Fri Oct  9 18:12:07 2020
+[1m[7m%[27m[1m[0m                                                                                                                                                                                                                                                              [0m[27m[24m[Jsteveb@MacBook-Pro .dotfiles % [K[?2004hlls[?2004l
+Brewfile	Nodefile	bin		functions	git		homebrew	macos		ruby		system		typescript	xcode		zsh
+LICENSE.md	README.md	ctags		fzf		go		iterm		node		script		tmux		vim		yarn
+[1m[7m%[27m[1m[0m                                                                                                                                                                                                                                                              [0m[27m[24m[Jsteveb@MacBook-Pro .dotfiles % [K[?2004hk ccd script[?2004l
+[1m[7m%[27m[1m[0m                                                                                                                                                                                                                                                              [0m[27m[24m[Jsteveb@MacBook-Pro script % [K[?2004hlls[?2004l
+bootstrap	install
+[1m[7m%[27m[1m[0m                                                                                                                                                                                                                                                              [0m[27m[24m[Jsteveb@MacBook-Pro script % [K[?2004h../bootstrap[?2004l
+
+  [ [00;34m..[0m ] setup gitconfig
+  [ [0;33m??[0m ]  - What is your github author name?
+[?1034hstevebosworth
+  [ [0;33m??[0m ]  - What is your github author email?
+steve.[Kbosworth@gmail.com
+[2K  [ [00;32mOK[0m ] gitconfig
+  [ [00;34m..[0m ] installing dotfiles
+lrwxr-xr-x  1 steveb  staff  41  9 Oct 18:12 /Users/steveb/.vimrc -> /Users/steveb/.dotfiles/vim/vimrc.symlink
+[2K  [ [00;32mOK[0m ] linked /Users/steveb/.dotfiles/vim/vimrc.symlink to /Users/steveb/.vimrc
+lrwxr-xr-x  1 steveb  staff  42  9 Oct 18:12 /Users/steveb/.gvimrc -> /Users/steveb/.dotfiles/vim/gvimrc.symlink
+[2K  [ [00;32mOK[0m ] linked /Users/steveb/.dotfiles/vim/gvimrc.symlink to /Users/steveb/.gvimrc
+lrwxr-xr-x  1 steveb  staff  43  9 Oct 18:12 /Users/steveb/.ctags -> /Users/steveb/.dotfiles/ctags/ctags.symlink
+[2K  [ [00;32mOK[0m ] linked /Users/steveb/.dotfiles/ctags/ctags.symlink to /Users/steveb/.ctags
+lrwxr-xr-x  1 steveb  staff  46  9 Oct 18:12 /Users/steveb/.tmux.conf -> /Users/steveb/.dotfiles/tmux/tmux.conf.symlink
+[2K  [ [00;32mOK[0m ] linked /Users/steveb/.dotfiles/tmux/tmux.conf.symlink to /Users/steveb/.tmux.conf
+  [ [0;33m??[0m ] File already exists: /Users/steveb/.zshrc (zshrc.symlink), what do you want to do?
+        [s]kip, [S]kip all, [o]verwrite, [O]verwrite all, [b]ackup, [B]ackup all?
+o[2K  [ [00;32mOK[0m ] removed /Users/steveb/.zshrc
+lrwxr-xr-x  1 steveb  staff  41  9 Oct 18:12 /Users/steveb/.zshrc -> /Users/steveb/.dotfiles/zsh/zshrc.symlink
+[2K  [ [00;32mOK[0m ] linked /Users/steveb/.dotfiles/zsh/zshrc.symlink to /Users/steveb/.zshrc
+lrwxr-xr-x  1 steveb  staff  42  9 Oct 18:12 /Users/steveb/.gemrc -> /Users/steveb/.dotfiles/ruby/gemrc.symlink
+[2K  [ [00;32mOK[0m ] linked /Users/steveb/.dotfiles/ruby/gemrc.symlink to /Users/steveb/.gemrc
+lrwxr-xr-x  1 steveb  staff  49  9 Oct 18:12 /Users/steveb/.ruby-version -> /Users/steveb/.dotfiles/ruby/ruby-version.symlink
+[2K  [ [00;32mOK[0m ] linked /Users/steveb/.dotfiles/ruby/ruby-version.symlink to /Users/steveb/.ruby-version
+lrwxr-xr-x  1 steveb  staff  42  9 Oct 18:12 /Users/steveb/.irbrc -> /Users/steveb/.dotfiles/ruby/irbrc.symlink
+[2K  [ [00;32mOK[0m ] linked /Users/steveb/.dotfiles/ruby/irbrc.symlink to /Users/steveb/.irbrc
+lrwxr-xr-x  1 steveb  staff  43  9 Oct 18:12 /Users/steveb/.fzf.zsh -> /Users/steveb/.dotfiles/fzf/fzf.zsh.symlink
+[2K  [ [00;32mOK[0m ] linked /Users/steveb/.dotfiles/fzf/fzf.zsh.symlink to /Users/steveb/.fzf.zsh
+  [ [0;33m??[0m ] File already exists: /Users/steveb/.gitconfig (gitconfig.symlink), what do you want to do?
+        [s]kip, [S]kip all, [o]verwrite, [O]verwrite all, [b]ackup, [B]ackup all?
+b[2K  [ [00;32mOK[0m ] moved /Users/steveb/.gitconfig to /Users/steveb/.gitconfig.backup
+lrwxr-xr-x  1 steveb  staff  45  9 Oct 18:12 /Users/steveb/.gitconfig -> /Users/steveb/.dotfiles/git/gitconfig.symlink
+[2K  [ [00;32mOK[0m ] linked /Users/steveb/.dotfiles/git/gitconfig.symlink to /Users/steveb/.gitconfig
+lrwxr-xr-x  1 steveb  staff  51  9 Oct 18:12 /Users/steveb/.gitconfig.local -> /Users/steveb/.dotfiles/git/gitconfig.local.symlink
+[2K  [ [00;32mOK[0m ] linked /Users/steveb/.dotfiles/git/gitconfig.local.symlink to /Users/steveb/.gitconfig.local
+lrwxr-xr-x  1 steveb  staff  45  9 Oct 18:12 /Users/steveb/.gitignore -> /Users/steveb/.dotfiles/git/gitignore.symlink
+[2K  [ [00;32mOK[0m ] linked /Users/steveb/.dotfiles/git/gitignore.symlink to /Users/steveb/.gitignore
+lrwxr-xr-x  1 steveb  staff  48  9 Oct 18:12 /Users/steveb/.git_template -> /Users/steveb/.dotfiles/git/git_template.symlink
+[2K  [ [00;32mOK[0m ] linked /Users/steveb/.dotfiles/git/git_template.symlink to /Users/steveb/.git_template
+
+  All installed!
+[1m[7m%[27m[1m[0m                                                                                                                                                                                                                                                              chruby: unknown Ruby: 2.6.5
+[0m[27m[24m[Jsteveb@MacBook-Pro script % [K[?2004h...[?2004l
+zsh: permission denied: ..
+[1m[7m%[27m[1m[0m                                                                                                                                                                                                                                                              [0m[27m[24m[Jsteveb@MacBook-Pro script % [K[?2004hlls[?2004l
+bootstrap	install
+[1m[7m%[27m[1m[0m                                                                                                                                                                                                                                                              [0m[27m[24m[Jsteveb@MacBook-Pro script % [K[?2004hk ../install[?2004l
+› brew bundle
+./install: line 11: brew: command not found
+[1m[7m%[27m[1m[0m                                                                                                                                                                                                                                                              [0m[27m[24m[Jsteveb@MacBook-Pro script % [K[?2004h

@@ -142,8 +142,23 @@ install_dotfiles () {
   #done
 }
 
+install_neovim_config () {
+  info 'installing config files'
+
+  local overwrite_all=false backup_all=false skip_all=false
+
+  dst="$HOME/.config/nvim/init.vim"
+  src="$DOTFILES_ROOT/neovim/init.vim"
+
+  # Make sure neovim folder exists
+  mkdir -p "$HOME/.config/nvim"
+
+  link_file "$src" "$dst"
+}
+
 setup_gitconfig
 install_dotfiles
+install_neovim_config
 
 # REMOVED FOR NOW, RUN INSTALL SEPARATELY
 # If we're on a Mac, let's install and setup homebrew.
