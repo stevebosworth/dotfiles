@@ -14,6 +14,10 @@ function currentBranch () {
 alias gl='git pull --prune'
 alias glog="git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
 alias gp='git push origin HEAD'
+alias gclt='git clean -n'
+alias gcla='git clean -f'
+alias gcld='git clean -fd'
+alias gclean='git clean'
 
 # Remove `+` and `-` from start of diff lines; just rely upon color.
 alias gd='git diff --color | sed "s/^\([^-+ ]*\)[-+ ]/\\1/" | less -r'
@@ -43,6 +47,10 @@ function gpffs () {
   echo Force pushing with lease to origin/$(currentBranch)
 
   git push origin $(currentBranch) --force-with-lease
+}
+
+function gstpf () {
+  git diff stash@{0}^! -- $1 | git apply -R
 }
 
 function gpstaging () {
@@ -133,6 +141,7 @@ alias grbi='git rebase -i'
 alias grbm='git rebase master'
 alias grbs='git rebase --skip'
 
+alias gr='git reset'
 alias grh='git reset HEAD'
 alias grhh='git reset HEAD --hard'
 alias grhr='git reset --hard origin/$(currentBranch)'
