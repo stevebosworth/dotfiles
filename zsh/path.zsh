@@ -1,4 +1,4 @@
-export PATH="/usr/local/opt/python/libexec/bin:/usr/local/bin:/usr/local/bin/git:/usr/bin:/bin:/usr/sbin:/sbin:/Users/steveb/.rvm/bin:/Users/steveb/.rvm/bin:/Users/steveb/Applications/utils"
+export PATH="/usr/local/opt/python/libexec/bin:/usr/local/bin:/usr/local/bin/git:/usr/bin:/bin:/usr/sbin:/sbin:/Users/steveb/Applications/utils"
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
@@ -11,6 +11,9 @@ export GOPATH="$HOME/codes/golang"
 
 ## THEME KIT
 export PATH="${GOPATH}/bin:${PATH}"
+
+## RUBY
+export GOPATH="/usr/local/opt/ruby/bin:/usr/local/lib/ruby/gems/2.7.0/bin:$PATH"
 
 ## Python PATH
 export PATH="/usr/local/opt/python/libexec/bin:$PATH"
