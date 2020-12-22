@@ -57,6 +57,9 @@ Plug 'jparise/vim-graphql'
 " -- Python Dev
 Plug 'vim-scripts/indentpython.vim'
 
+" -- RUST Dev
+Plug 'cespare/vim-toml'
+Plug 'rust-lang/rust.vim'
 
 call plug#end()
 
@@ -361,6 +364,7 @@ let g:coc_global_extensions = [
   \ 'coc-eslint',
   \ 'coc-prettier',
   \ 'coc-solargraph',
+  \ 'coc-rls',
   \ ]
 
 " Use tab for trigger completion with characters ahead and navigate.

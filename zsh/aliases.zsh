@@ -8,6 +8,13 @@ alias vimrc="nvim ~/.vimrc"
 alias ng="ngrok http -subdomain=steve"
 alias code="code-insiders"
 
+# Add to ~/.zshrc
+alias a="arch -x86_64"
+alias ibrew="arch -x86_64 brew"
+
+alias srczsh="source ~/.zshrc"
+alias srcvim="source ~/.zshrc"
+
 alias copyjs="pbpaste | highlight --font Menlo --font-size 24 --style solarized-dark --syntax=js -O rtf | pbcopy"
 alias copyhtml="pbpaste | highlight --font Menlo --font-size 24 --style solarized-dark --syntax=html -O rtf | pbcopy"
 alias copycss="pbpaste | highlight --font Menlo --font-size 24 --style solarized-dark --syntax=css -O rtf | pbcopy"

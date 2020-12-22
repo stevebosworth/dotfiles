@@ -13,7 +13,10 @@ export GOPATH="$HOME/codes/golang"
 export PATH="${GOPATH}/bin:${PATH}"
 
 ## RUBY
-export GOPATH="/usr/local/opt/ruby/bin:/usr/local/lib/ruby/gems/2.7.0/bin:$PATH"
+export PATH="/usr/local/opt/ruby/bin:/usr/local/lib/ruby/gems/2.7.0/bin:$PATH"
+
+## RUST
+export PATH="$HOME/.cargo/bin:$PATH"
 
 ## Python PATH
 export PATH="/usr/local/opt/python/libexec/bin:$PATH"
