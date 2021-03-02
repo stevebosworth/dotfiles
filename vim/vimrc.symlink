@@ -39,21 +39,21 @@ Plug 'Yggdroot/indentLine'
 " -- Web Development
 Plug 'mattn/emmet-vim'
 Plug 'hail2u/vim-css3-syntax'
+Plug 'ap/vim-css-color'
 Plug 'othree/html5.vim'
 Plug 'briancollins/vim-jst'
-Plug 'jparise/vim-graphql'
-Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-liquid'
 Plug 'nickng/vim-scribble'
 Plug 'heavenshell/vim-jsdoc'
-Plug 'ap/vim-css-color'
-Plug 'leafgarland/typescript-vim'
+Plug 'pangloss/vim-javascript'
 Plug 'peitalin/vim-jsx-typescript'
+Plug 'leafgarland/typescript-vim'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'jparise/vim-graphql'
 Plug 'wakatime/vim-wakatime'
+Plug 'kana/vim-textobj-user'
+Plug 'nelstrom/vim-textobj-rubyblock'
 
 " -- Python Dev
 Plug 'vim-scripts/indentpython.vim'
@@ -179,6 +179,8 @@ autocmd BufNewFile,BufRead *.js.liquid setlocal ft=JavaScript
 autocmd BufNewFile,BufRead *.scss.liquid setlocal ft=scss
 "   Guardfile files use ruby syntax
 autocmd BufNewFile,BufRead Guardfile setlocal ft=ruby
+" set filetypes as typescriptreact
+autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescriptreact
 
 au BufNewFile,BufRead *.py
     \ setlocal ft=python
@@ -186,8 +188,6 @@ au BufNewFile,BufRead *.py
     \ setlocal softtabstop=4
     \ setlocal shiftwidth=4
     \ setlocal textwidth=79
-    \ setlocal expandtab
-    \ setlocal autoindent
     \ setlocal fileformat=unix
 
 " Reload Syntax for TS and JS file
@@ -396,6 +396,10 @@ inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 " Remap keys for gotos
 nmap <silent> gd <Plug>(coc-definition)
+" Go to definition in splits
+" nmap <silent> gs :sp<CR><Plug>(coc-definition)
+" nmap <silent> gv :vsp<CR><Plug>(coc-definition)
+
 nmap <silent> gt <Plug>(coc-type-definition)
 nmap <silent> gc <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
@@ -606,7 +610,6 @@ nnoremap <silent>J m`:silent +g/\m^\s*$/d<CR>``:noh<CR>
 nnoremap <silent>K m`:silent -g/\m^\s*$/d<CR>``:noh<CR>
 nnoremap <silent>“ :set paste<CR>m`o<Esc>``:set nopaste<CR>
 nnoremap <silent>‘ :set paste<CR>m`O<Esc>``:set nopaste<CR>
-
 
 " Use kj to exit insert mode
 inoremap kj <esc>

@@ -70,3 +70,5 @@ export USE_LOCAL_SHOPIFY=1
 
 [ -f /opt/dev/dev.sh ] && source /opt/dev/dev.sh
 if [ -e /Users/steveb/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/steveb/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
