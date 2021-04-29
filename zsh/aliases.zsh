@@ -32,6 +32,7 @@ function smartresize() {
 }
 
 function ngrokShop () { ngrok http -subdomain=steve -host-header=$1.myshopify.io $1.myshopify.io:80 }
+function ngrokShopSSL () { ngrok http -subdomain=steve -host-header=rewrite $1.myshopify.io:443 }
 
 function ngrokSteve () { ngrok http -subdomain=steve -host-header=$1 $1:80 }
 

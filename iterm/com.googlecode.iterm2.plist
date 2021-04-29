@@ -31483,13 +31483,13 @@ Close All Panes in Tab</string>
 	<key>Hotkey</key>
 	<true/>
 	<key>HotkeyChar</key>
-	<integer>69</integer>
+	<integer>84</integer>
 	<key>HotkeyCode</key>
-	<integer>14</integer>
+	<integer>17</integer>
 	<key>HotkeyMigratedFromSingleToMulti</key>
 	<true/>
 	<key>HotkeyModifiers</key>
-	<integer>1179648</integer>
+	<integer>1179914</integer>
 	<key>IRMemory</key>
 	<integer>4</integer>
 	<key>JobName</key>

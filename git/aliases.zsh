@@ -37,6 +37,10 @@ alias ge='git-edit-new'
 alias greb='git for-each-ref --sort=-committerdate --count=10 --format="%(refname:short)" refs/heads/'
 alias gdm='git diff $(git merge-base HEAD origin/master)'
 
+function glrb() {
+  git reflog show --pretty=format:'%gs ~ %gd' --date=relative | grep 'checkout:' | grep -oE '[^ ]+ ~ .*' | awk -F~ '!seen[$1]++' | head -n 10 | awk -F' ~ HEAD@{' '{printf("%s \(%s\)\n", $1, substr($2, 1, length($2)-1))}'
+}
+
 # DOESN'T WORK ¯\_(ツ)_/¯
 function gbd () {
   git diff $(git merge-base HEAD origin/$1)

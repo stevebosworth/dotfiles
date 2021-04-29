@@ -369,6 +369,7 @@ let g:coc_global_extensions = [
   \ 'coc-marketplace',
   \ 'coc-tsserver',
   \ 'coc-eslint',
+  \ 'coc-stylelint',
   \ 'coc-prettier',
   \ 'coc-solargraph',
   \ 'coc-rls',
