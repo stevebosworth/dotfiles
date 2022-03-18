@@ -16,13 +16,14 @@
     "typescript",
     "typescriptreact"
   ],
+  "css.lint.unknownAtRules": "ignore",
+  "prettier.tslintIntegration": true,
   "eslint.filetypes": [
     "javascript",
     "javascriptreact",
     "typescript",
     "typescriptreact"
   ],
-  "prettier.tslintIntegration": true,
   // coc-explorer
   "explorer.icon.enableNerdfont": true,
   "explorer.previewAction.onHover": false,

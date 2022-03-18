@@ -16,9 +16,6 @@ defaults write com.apple.Finder FXPreferredViewStyle Nlsv
 # Show the ~/Library folder.
 chflags nohidden ~/Library
 
-# Unbind play key to
-launchctl unload -w /System/Library/LaunchAgents/com.apple.rcd.plist
-
 # Set a really fast key repeat.
 defaults write NSGlobalDomain KeyRepeat -int 1.1
 defaults write NSGlobalDomain InitialKeyRepeat -int 15 # normal minimum is 15 (225 ms)
@@ -40,6 +37,7 @@ defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
 
 # Setup VS Code defaults
 defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false         # For VS Code
+defaults write com.microsoft.VSCodeInsiders ApplePressAndHoldEnabled -bool false
 # defaults write com.microsoft.VSCodeInsiders ApplePressAndHoldEnabled -bool false # For VS Code Insider
 # defaults delete -g ApplePressAndHoldEnabled                                      # If necessary, reset global default
 
@@ -50,3 +48,6 @@ defaults write org.vim.MacVim ApplePressAndHoldEnabled -bool false
 defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string "~/.dotfiles/iterm"
 # Tell iTerm2 to use the custom preferences in the directory
 defaults write com.googlecode.iterm2.plist LoadPrefsFromCustomFolder -bool true
+
+# Set screenshots to capture using JPG instead of PNG
+defaults write com.apple.screencapture type JPG

@@ -121,6 +121,9 @@ set exrc
 " set , as mapleader
 let mapleader = ","
 
+" set python version for neovim
+let g:python3_host_prog = "/opt/homebrew/bin/python3"
+
 " map <leader>q and <leader>w to buffer prev/next buffer
 noremap <leader>q :bp<CR>
 noremap <leader>w :bn<CR>
@@ -311,7 +314,7 @@ endfunction
 if executable('ag')
   "Use ag over grep
   set grepprg=ag\ --nogroup\ --nocolor
-  let g:ackprg = 'ag --nogroup --nocolor --column --ignore-dir={node_modules,dist,.git,screenshots}'
+  let g:ackprg = 'ag --nogroup --nocolor --column --ignore-dir={node_modules,dist,.git,screenshots,.next}'
 endif
 
 
@@ -373,6 +376,7 @@ let g:coc_global_extensions = [
   \ 'coc-prettier',
   \ 'coc-solargraph',
   \ 'coc-rls',
+  \ 'coc-tailwindcss',
   \ ]
 
 " Use tab for trigger completion with characters ahead and navigate.
@@ -631,6 +635,10 @@ vmap <up> <nop>
 vmap <down> <nop>
 vmap <left> <nop>
 vmap <right> <nop>
+
+" FZF available commands
+nnoremap <C-C> :Command<CR>
+vnoremap <C-C> :Command<CR>
 
 " Go to send of line and insert
 inoremap LL <Esc>A

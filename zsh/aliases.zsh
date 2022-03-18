@@ -36,7 +36,6 @@ function ngrokShopSSL () { ngrok http -subdomain=steve -host-header=rewrite $1.m
 
 function ngrokSteve () { ngrok http -subdomain=steve -host-header=$1 $1:80 }
 
-eval $(thefuck --alias)
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
