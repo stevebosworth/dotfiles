@@ -682,6 +682,9 @@ vnoremap // y/\V<C-r>=escape(@",'/\')<CR><CR>
 
 vnoremap //r "hy:%s/<C-r>h//g<left><left>
 
+"Something fucked this up and remapped it to y$
+nnoremap Y Y
+
 command! PrettyJSON %!jq '.'
 command! PrettyHTML !tidy -mi -html -wrap 0 %
 command! PrettyXML !tidy -mi -xml -wrap 0 %
