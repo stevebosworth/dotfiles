@@ -31,9 +31,10 @@
 	clean = git-media-clean %f
 	smudge = git-media-smudge %f
 [filter "lfs"]
-	clean = git-lfs clean %f
-	smudge = git-lfs smudge %f
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
 	required = true
+	process = git-lfs filter-process
 
 [branch]
         autosetuprebase = always
@@ -57,3 +58,6 @@
 [credential]
 	helper = 
 	helper = store --file /opt/dev/var/private/git_credential_store
+[user]
+	name = Steve Bosworth
+	email = stevebosworth@gmail.com

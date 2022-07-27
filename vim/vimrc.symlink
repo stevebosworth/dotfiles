@@ -54,6 +54,7 @@ Plug 'jparise/vim-graphql'
 Plug 'wakatime/vim-wakatime'
 Plug 'kana/vim-textobj-user'
 Plug 'nelstrom/vim-textobj-rubyblock'
+Plug 'tomlion/vim-solidity'
 
 " -- Python Dev
 Plug 'vim-scripts/indentpython.vim'
@@ -196,6 +197,10 @@ au BufNewFile,BufRead *.py
 " Reload Syntax for TS and JS file
 autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
 autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
+
+
+" enable proper syntax highlighting in markdown code blocks
+let g:markdown_fenced_languages = ['html', 'python', 'ruby', 'vim', 'javascript', 'css']
 
 "------------ Python Dev Setup --------------
 
@@ -681,9 +686,6 @@ nnoremap <leader>m :History<CR>
 vnoremap // y/\V<C-r>=escape(@",'/\')<CR><CR>
 
 vnoremap //r "hy:%s/<C-r>h//g<left><left>
-
-"Something fucked this up and remapped it to y$
-nnoremap Y Y
 
 command! PrettyJSON %!jq '.'
 command! PrettyHTML !tidy -mi -html -wrap 0 %
