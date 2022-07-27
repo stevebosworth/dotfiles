@@ -72,3 +72,4 @@ export USE_LOCAL_SHOPIFY=1
 if [ -e /Users/steveb/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/steveb/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+eval "$(/opt/homebrew/bin/brew shellenv)"
