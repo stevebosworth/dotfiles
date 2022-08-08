@@ -358,6 +358,11 @@ function! NERDTreeQuit()
 endfunction
 autocmd WinEnter * call NERDTreeQuit()
 
+set wildignore+=*.pyc,*.o,*.obj,*.svn,*.swp,*.class,*.hg,*.DS_Store,*.min.*
+
+" Nerdtree config for wildignore
+let NERDTreeRespectWildIgnore=1
+
 " ---------------------- Emmet Setup ----------------------
 let g:user_emmet_leader_key = '<c-e>'
 let g:user_emmet_settings = {
