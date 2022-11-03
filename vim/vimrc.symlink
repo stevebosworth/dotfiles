@@ -36,6 +36,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'janko/vim-test'
 Plug 'thaerkh/vim-workspace'
 Plug 'Yggdroot/indentLine'
+Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 " -- Web Development
 Plug 'mattn/emmet-vim'
 Plug 'hail2u/vim-css3-syntax'

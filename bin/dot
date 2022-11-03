@@ -40,16 +40,33 @@ done
 
 export ZSH=$HOME/.dotfiles
 
-# Set macOS defaults
-$ZSH/macos/set-defaults.sh
+# Run things depending on what system it
+if [ "$(uname)" == "Darwin" ]; then
+  # Do something under Mac OS X platform
 
-# Install homebrew
-$ZSH/homebrew/install.sh 2>&1
+  # Set macOS defaults
+  $ZSH/macos/set-defaults.sh
 
-# Upgrade homebrew
-echo "› brew update"
-brew update
+  # Install homebrew
+  $ZSH/homebrew/install.sh 2>&1
 
+  # Upgrade homebrew
+  echo "› brew stuff"
+  # which -s brew
+  if [[ $? = 0 ]] ; then
+      # Install Homebrew
+      ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  else
+      brew update
+  fi
+
+elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
+    # Do something under GNU/Linux platform
+elif [ "$(expr substr $(uname -s) 1 10)" == "MINGW32_NT" ]; then
+    # Do something under 32 bits Windows NT platform
+elif [ "$(expr substr $(uname -s) 1 10)" == "MINGW64_NT" ]; then
+    # Do something under 64 bits Windows NT platform
+fi
 # Install software
 echo "› $ZSH/script/install"
 $ZSH/script/install

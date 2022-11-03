@@ -12,7 +12,7 @@ If you're interested in the philosophy behind why projects like these are
 awesome, you might want to [read Zach's post on the
 subject](http://zachholman.com/2010/08/dotfiles-are-meant-to-be-forked/).
 
-Based on https://github.com/holman/dotfiles.git 
+Based on https://github.com/holman/dotfiles.git
 
 ## install
 
@@ -21,7 +21,7 @@ Run this:
 ```sh
 git clone https://github.com/stevebosworth/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
-script/bootstrap
+setup/bootstrap
 ```
 
 This will symlink the appropriate files in `.dotfiles` to your home directory.
@@ -41,7 +41,7 @@ Everything's built around topic areas. If you're adding a new area to your
 forked dotfiles — say, "Java" — you can simply add a `java` directory and put
 files in there. Anything with an extension of `.zsh` will get automatically
 included into your shell. Anything with an extension of `.symlink` will get
-symlinked without extension into `$HOME` when you run `script/bootstrap`.
+symlinked without extension into `$HOME` when you run `setup/bootstrap`.
 
 ## what's inside
 
