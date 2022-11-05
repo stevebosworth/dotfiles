@@ -55,9 +55,3 @@
 	writeCommitGraph = true
 [pull]
 	ff = only
-[credential]
-	helper =
-	helper = store --file /opt/dev/var/private/git_credential_store
-[user]
-	name = stevebosworth
-	email = stevebosworth@gmail.com
