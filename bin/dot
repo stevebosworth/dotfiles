@@ -38,7 +38,7 @@ while test $# -gt 0; do
 	shift
 done
 
-export ZSH=$HOME/.dotfiles
+export ZSH=$HOME/dotfiles
 
 # Run things depending on what system it
 if [ "$(uname)" == "Darwin" ]; then

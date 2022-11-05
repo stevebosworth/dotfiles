@@ -56,8 +56,8 @@
 [pull]
 	ff = only
 [credential]
-	helper = 
+	helper =
 	helper = store --file /opt/dev/var/private/git_credential_store
 [user]
-	name = Steve Bosworth
+	name = stevebosworth
 	email = stevebosworth@gmail.com
