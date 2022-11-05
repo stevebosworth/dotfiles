@@ -45,7 +45,7 @@ defaults write com.microsoft.VSCodeInsiders ApplePressAndHoldEnabled -bool false
 defaults write org.vim.MacVim ApplePressAndHoldEnabled -bool false
 
 # Specify the preferences directory for iTerm
-defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string "~/.dotfiles/iterm"
+defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string "~/dotfiles/iterm"
 # Tell iTerm2 to use the custom preferences in the directory
 defaults write com.googlecode.iterm2.plist LoadPrefsFromCustomFolder -bool true
 

@@ -40,23 +40,16 @@ done
 
 export ZSH=$HOME/dotfiles
 
-# Run things depending on what system it
-if [ "$(uname)" == "Darwin" ]; then
-  # Do something under Mac OS X platform
-
-  # Set macOS defaults
-  $ZSH/macos/set-defaults.sh
-
-  # Install homebrew
-  $ZSH/homebrew/install.sh 2>&1
-
-elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
-    # Do something under GNU/Linux platform
-elif [ "$(expr substr $(uname -s) 1 10)" == "MINGW32_NT" ]; then
-    # Do something under 32 bits Windows NT platform
-elif [ "$(expr substr $(uname -s) 1 10)" == "MINGW64_NT" ]; then
-    # Do something under 64 bits Windows NT platform
-fi
+# # Run things depending on what system it
+# if [ "$(uname)" == "Darwin" ]; then
+#   # Do something under Mac OS X platform
+# elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
+#     # Do something under GNU/Linux platform
+# elif [ "$(expr substr $(uname -s) 1 10)" == "MINGW32_NT" ]; then
+#     # Do something under 32 bits Windows NT platform
+# elif [ "$(expr substr $(uname -s) 1 10)" == "MINGW64_NT" ]; then
+#     # Do something under 64 bits Windows NT platform
+# fi
 # Install software
 echo "› $ZSH/script/install"
 $ZSH/script/install

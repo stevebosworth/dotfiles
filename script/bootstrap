@@ -145,7 +145,7 @@ install_dotfiles () {
 install_neovim_config () {
   info 'installing config files'
 
-  local overwrite_all=false backup_all=false skip_all=false
+  local overwrite_all=true backup_all=false skip_all=false
 
   dst="$HOME/.config/nvim/init.vim"
   src="$DOTFILES_ROOT/neovim/init.vim"
@@ -156,7 +156,7 @@ install_neovim_config () {
   link_file "$src" "$dst"
 }
 
-setup_gitconfig
+#setup_gitconfig
 install_dotfiles
 install_neovim_config
 
