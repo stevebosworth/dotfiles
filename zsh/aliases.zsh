@@ -6,7 +6,6 @@ alias zshrc="nvim ~/.zshrc"
 alias ohmyzsh="nvim ~/.oh-my-zsh"
 alias vimrc="nvim ~/.vimrc"
 alias ng="ngrok http -subdomain=steve"
-alias code="code-insiders"
 
 # Add to ~/.zshrc
 alias a="arch -x86_64"
