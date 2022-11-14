@@ -122,7 +122,7 @@ set exrc
 let mapleader = ","
 
 " set python version for neovim
-let g:python3_host_prog = "/opt/homebrew/bin/python3"
+let g:python3_host_prog = $PYTHON3_PATH
 
 " map <leader>q and <leader>w to buffer prev/next buffer
 noremap <leader>q :bp<CR>

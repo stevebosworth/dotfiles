@@ -61,6 +61,8 @@ bindkey "^[[B" down-line-or-beginning-search # Down
 
 setopt auto_cd
 
+export PYTHON3_PATH="$(which python3)"
+
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
