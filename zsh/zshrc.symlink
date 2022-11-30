@@ -68,4 +68,6 @@ export NVM_DIR="$HOME/.nvm"
 
 export TDD=0
 
+eval $(thefuck --alias)
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

@@ -1,4 +1,4 @@
-export PATH="/usr/local/opt/python/libexec/bin:/usr/local/bin:/usr/local/bin/git:/usr/bin:/bin:/usr/sbin:/sbin:/Users/steveb/Applications/utils"
+export PATH="/usr/local/opt/python/libexec/bin:/usr/local/bin:/usr/local/bin/git:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/Applications/utils"
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
@@ -22,4 +22,4 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 
 ## Nix PATH
-export NIX_PATH="nixpkgs=/Users/steveb/.nix-defexpr/channels/nixpkgs:/Users/steveb/.nix-defexpr/channels"
+export NIX_PATH="nixpkgs=$HOME/.nix-defexpr/channels/nixpkgs:$HOME/.nix-defexpr/channels"
