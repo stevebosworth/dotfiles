@@ -335,6 +335,8 @@ vnoremap <C-f> :Ack! "<C-R><C-W>"
 map <C-n> :Fern . -drawer -toggle<CR>
 nnoremap <silent> <Leader>n :Fern . -reveal=% -drawer -toggle<CR>
 
+let g:fern#default_hidden=1
+
 " Return a parent directory of the current buffer when the buffer is a file.
 " Otherwise it returns a current working directory.
 function! s:smart_path() abort
