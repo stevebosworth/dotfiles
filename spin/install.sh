@@ -7,6 +7,6 @@ if [ $SPIN ]; then
   # Set system generated .gitconfig to .gitconfig.local. We'll pull it in later as part
   # of our custom gitconfig. The generated gitconfig already has the right user and email,
   # since Spin knows that from login.
-  mv -n ~/.gitconfig ~/.gitconfig.local
+  mv -n ~/.gitconfig ~/.gitconfig.private
 fi
 

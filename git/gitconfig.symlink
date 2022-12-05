@@ -1,6 +1,6 @@
 # Local/private config goes in the include
 [include]
-        path = ~/.gitconfig.private
+        path = ~/.gitconfig.local
 [hub]
         protocol = https
 [color]
@@ -55,6 +55,3 @@
 	writeCommitGraph = true
 [pull]
 	ff = only
-[user]
-	email = steve.bosworth@shopify.com
-	name = Steve Bosworth
