@@ -28,7 +28,7 @@ fail () {
 }
 
 setup_gitconfig () {
-  if ! [ -f git/gitconfig.local.symlink ]
+  if ! [ -f git/gitconfig.private.symlink ]
   then
     info 'setup gitconfig'
 
@@ -43,7 +43,7 @@ setup_gitconfig () {
     user ' - What is your github author email?'
     read -e git_authoremail
 
-    sed -e "s/AUTHORNAME/$git_authorname/g" -e "s/AUTHOREMAIL/$git_authoremail/g" -e "s/GIT_CREDENTIAL_HELPER/$git_credential/g" git/gitconfig.local.symlink.example > git/gitconfig.local.symlink
+    sed -e "s/AUTHORNAME/$git_authorname/g" -e "s/AUTHOREMAIL/$git_authoremail/g" -e "s/GIT_CREDENTIAL_HELPER/$git_credential/g" git/gitconfig.private.symlink.example > git/gitconfig.private.symlink
 
     success 'gitconfig'
   fi
@@ -56,6 +56,7 @@ link_file () {
   local overwrite= backup= skip=
   local action=
 
+  # Just overwrite_all no matter what
   # if [ -f "$dst" -o -d "$dst" -o -L "$dst" ]
   # then
   #
