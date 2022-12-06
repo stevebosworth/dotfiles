@@ -9,9 +9,7 @@ call plug#begin('~/.vim/plugged')
 
 " start plugin defintion
 Plug 'lambdalisue/fern.vim'
-Plug 'hrsh7th/fern-mapping-call-function.vim'
 Plug 'lambdalisue/fern-git-status.vim'
-Plug 'lambdalisue/nerdfont.vim'
 Plug 'vim-scripts/L9'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-ragtag'
@@ -55,7 +53,6 @@ Plug 'peitalin/vim-jsx-typescript'
 Plug 'leafgarland/typescript-vim'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'jparise/vim-graphql'
-Plug 'nelstrom/vim-textobj-rubyblock'
 Plug 'tomlion/vim-solidity'
 
 " -- Python Dev
