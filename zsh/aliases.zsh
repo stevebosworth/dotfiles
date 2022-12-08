@@ -37,4 +37,3 @@ function ngrokSteve () { ngrok http -subdomain=steve -host-header=$1 $1:80 }
 
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
