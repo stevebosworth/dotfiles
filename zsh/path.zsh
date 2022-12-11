@@ -9,9 +9,6 @@ export PATH=$PATH:/usr/local/opt/go/libexec/bin
 ## GOPATH
 export GOPATH="$HOME/codes/golang"
 
-## THEME KIT
-export PATH="${GOPATH}/bin:${PATH}"
-
 ## RUBY
 export PATH="/usr/local/opt/ruby/bin:/usr/local/lib/ruby/gems/2.7.0/bin:$PATH"
 
