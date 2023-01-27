@@ -9,59 +9,65 @@ call plug#begin('~/.vim/plugged')
 
 " start plugin defintion
 
-Plug 'lambdalisue/fern.vim'
-Plug 'lambdalisue/fern-git-status.vim'
-Plug 'vim-scripts/L9'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-ragtag'
-Plug 'scrooloose/nerdcommenter'
-Plug 'airblade/vim-gitgutter'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-rhubarb'
-Plug 'tpope/vim-dispatch'
-Plug 'jiangmiao/auto-pairs'
-Plug 'editorconfig/editorconfig-vim'
-Plug 'mileszs/ack.vim'
-Plug 'tpope/vim-eunuch'
-Plug 'NLKNguyen/papercolor-theme'
-Plug 'djoshea/vim-autoread'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
-Plug 'ntpeters/vim-better-whitespace'
-Plug 'w0rp/ale'
-Plug 'itchyny/lightline.vim'
-Plug 'maximbaz/lightline-ale'
-Plug 'kien/rainbow_parentheses.vim'
-Plug 'majutsushi/tagbar'
-Plug 'Konfekt/vim-alias'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'janko/vim-test'
-Plug 'thaerkh/vim-workspace'
-Plug 'Yggdroot/indentLine'
-Plug 'christoomey/vim-tmux-navigator'
-" -- Web Development
-Plug 'mattn/emmet-vim'
-Plug 'hail2u/vim-css3-syntax'
-Plug 'ap/vim-css-color'
-Plug 'othree/html5.vim'
-Plug 'briancollins/vim-jst'
-Plug 'tpope/vim-rails'
-Plug 'tpope/vim-liquid'
-Plug 'nickng/vim-scribble'
-Plug 'heavenshell/vim-jsdoc'
-Plug 'pangloss/vim-javascript'
-Plug 'peitalin/vim-jsx-typescript'
-Plug 'leafgarland/typescript-vim'
-Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
-Plug 'jparise/vim-graphql'
-Plug 'tomlion/vim-solidity'
+if exists('g:vscode')
+  Plug 'jiangmiao/auto-pairs'
+  Plug 'tpope/vim-surround'
+  Plug 'preservim/nerdcommenter'
+else
+  Plug 'lambdalisue/fern.vim'
+  Plug 'lambdalisue/fern-git-status.vim'
+  Plug 'vim-scripts/L9'
+  Plug 'tpope/vim-surround'
+  Plug 'tpope/vim-ragtag'
+  Plug 'scrooloose/nerdcommenter'
+  Plug 'airblade/vim-gitgutter'
+  Plug 'tpope/vim-fugitive'
+  Plug 'tpope/vim-rhubarb'
+  Plug 'tpope/vim-dispatch'
+  Plug 'jiangmiao/auto-pairs'
+  Plug 'editorconfig/editorconfig-vim'
+  Plug 'mileszs/ack.vim'
+  Plug 'tpope/vim-eunuch'
+  Plug 'NLKNguyen/papercolor-theme'
+  Plug 'djoshea/vim-autoread'
+  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+  Plug 'junegunn/fzf.vim'
+  Plug 'ntpeters/vim-better-whitespace'
+  Plug 'w0rp/ale'
+  Plug 'itchyny/lightline.vim'
+  Plug 'maximbaz/lightline-ale'
+  Plug 'kien/rainbow_parentheses.vim'
+  Plug 'majutsushi/tagbar'
+  Plug 'Konfekt/vim-alias'
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  Plug 'janko/vim-test'
+  Plug 'thaerkh/vim-workspace'
+  Plug 'Yggdroot/indentLine'
+  Plug 'christoomey/vim-tmux-navigator'
+  " -- Web Development
+  Plug 'mattn/emmet-vim'
+  Plug 'hail2u/vim-css3-syntax'
+  Plug 'ap/vim-css-color'
+  Plug 'othree/html5.vim'
+  Plug 'briancollins/vim-jst'
+  Plug 'tpope/vim-rails'
+  Plug 'tpope/vim-liquid'
+  Plug 'nickng/vim-scribble'
+  Plug 'heavenshell/vim-jsdoc'
+  Plug 'pangloss/vim-javascript'
+  Plug 'peitalin/vim-jsx-typescript'
+  Plug 'leafgarland/typescript-vim'
+  Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+  Plug 'jparise/vim-graphql'
+  Plug 'tomlion/vim-solidity'
 
-" -- Python Dev
-Plug 'vim-scripts/indentpython.vim'
+  " -- Python Dev
+  Plug 'vim-scripts/indentpython.vim'
 
-" -- RUST Dev
-Plug 'cespare/vim-toml'
-Plug 'rust-lang/rust.vim'
+  " -- RUST Dev
+  Plug 'cespare/vim-toml'
+  Plug 'rust-lang/rust.vim'
+endif
 
 call plug#end()
 
