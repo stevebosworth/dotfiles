@@ -13,6 +13,7 @@ if exists('g:vscode')
   Plug 'jiangmiao/auto-pairs'
   Plug 'tpope/vim-surround'
   Plug 'preservim/nerdcommenter'
+  Plug 'shopify/spin-hud'
 else
   Plug 'lambdalisue/fern.vim'
   Plug 'lambdalisue/fern-git-status.vim'

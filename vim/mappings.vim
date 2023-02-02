@@ -32,7 +32,7 @@ nnoremap <C-C> :Command<CR>
 vnoremap <C-C> :Command<CR>
 
 " Go to send of line and insert
-inoremap LL <Esc>A
+inoremap <C-e> <C-o>A
 
 " Add space in behind cursor
 nnoremap ss i<space><esc>
