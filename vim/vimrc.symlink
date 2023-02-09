@@ -1,5 +1,3 @@
-source $ZSH/vim/plugins.vim
-
 " don't make vim compatible with vi
 set nocompatible
 
@@ -164,10 +162,6 @@ filetype indent on
 "auto resize windows
 autocmd VimResized * wincmd =
 
-" set the color theme
-set background=dark
-colorscheme PaperColor
-
 "Show trailing whitespaces
 set list listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:-,trail:-
 
@@ -200,11 +194,18 @@ augroup myvimrc
   au BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
 augroup END
 
+source $ZSH/vim/plugins.vim
+
+" set the color theme
+set background=dark
+colorscheme PaperColor
+
 " Autoload .vimrc
 augroup reload_vimrc " {
     autocmd!
     autocmd BufWritePost $MYVIMRC source $MYVIMRC
 augroup END " }
+
 
 " set secure to protect project specific vimrc
 set secure

@@ -13,7 +13,6 @@ if exists('g:vscode')
   Plug 'jiangmiao/auto-pairs'
   Plug 'tpope/vim-surround'
   Plug 'preservim/nerdcommenter'
-  Plug 'shopify/spin-hud'
 else
   Plug 'lambdalisue/fern.vim'
   Plug 'lambdalisue/fern-git-status.vim'
@@ -61,6 +60,10 @@ else
   Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
   Plug 'jparise/vim-graphql'
   Plug 'tomlion/vim-solidity'
+  Plug 'nvim-telescope/telescope.nvim' " optional
+  Plug 'nvim-treesitter/nvim-treesitter'
+  Plug 'cuducos/yaml.nvim'
+  Plug 'shopify/spin-hub'
 
   " -- Python Dev
   Plug 'vim-scripts/indentpython.vim'

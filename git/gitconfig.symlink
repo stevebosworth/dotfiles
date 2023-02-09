@@ -1,6 +1,10 @@
 # Local/private config goes in the include
 [include]
-        path = "if [[ $SPIN ]]; then CONPATH='~/.gitconfig.spin'; else CONPATH='~/.gitconfig.local'; fi; $CONPATH"
+        path = ~/.gitconfig.local
+
+[includeIf "gitdir:~/spin/"]
+        path = ~/.gitconfig.spin
+
 [hub]
         protocol = https
 [color]
