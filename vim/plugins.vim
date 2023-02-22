@@ -63,7 +63,6 @@ else
   Plug 'nvim-telescope/telescope.nvim' " optional
   Plug 'nvim-treesitter/nvim-treesitter'
   Plug 'cuducos/yaml.nvim'
-  Plug 'shopify/spin-hub'
 
   " -- Python Dev
   Plug 'vim-scripts/indentpython.vim'

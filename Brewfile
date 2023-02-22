@@ -39,6 +39,7 @@ brew 'ruby-install'
 brew 'python3'
 brew 'mas'
 brew 'thefuck'
+brew '1password-cli'
 
 cask 'iterm2'
 cask '1password'
