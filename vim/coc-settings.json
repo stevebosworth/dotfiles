@@ -35,7 +35,7 @@
       "expand",
       "open"
     ],
-    "x": "open:split",
-    "v": "open:vsplit"
+    "x": "open:split.intelligent",
+    "v": "open:vsplit.intelligent"
   }
 }
