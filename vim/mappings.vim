@@ -6,12 +6,6 @@ inoremap <Nul> <C-Space>
 "  ...and in gui mode
 inoremap <C-Space> <C-n>
 
-" Ctrl-j/k deletes blank line below/above, and Alt-j/k inserts.
-nnoremap <silent>J m`:silent +g/\m^\s*$/d<CR>``:noh<CR>
-nnoremap <silent>K m`:silent -g/\m^\s*$/d<CR>``:noh<CR>
-nnoremap <silent>“ :set paste<CR>m`o<Esc>``:set nopaste<CR>
-nnoremap <silent>‘ :set paste<CR>m`O<Esc>``:set nopaste<CR>
-
 " Use kj to exit insert mode
 " inoremap kj <esc>
 " cnoremap kj <esc>
@@ -31,7 +25,7 @@ vmap <right> <nop>
 nnoremap <C-C> :Command<CR>
 vnoremap <C-C> :Command<CR>
 
-" Go to send of line and insert
+" Go to end of line and insert
 inoremap <C-f> <C-o>A
 
 " Add space in behind cursor

@@ -43,9 +43,6 @@ else
   Plug 'thaerkh/vim-workspace'
   Plug 'Yggdroot/indentLine'
   Plug 'christoomey/vim-tmux-navigator'
-  Plug 'tomlion/vim-solidity'
-  Plug 'nvim-telescope/telescope.nvim' " optional
-  Plug 'nvim-treesitter/nvim-treesitter'
   Plug 'github/copilot.vim'
   " -- Web Development
   Plug 'mattn/emmet-vim'
@@ -63,13 +60,6 @@ else
   Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
   Plug 'jparise/vim-graphql'
   Plug 'cuducos/yaml.nvim'
-
-  " -- Python Dev
-  Plug 'vim-scripts/indentpython.vim'
-
-  " -- RUST Dev
-  Plug 'cespare/vim-toml'
-  Plug 'rust-lang/rust.vim'
 endif
 
 call plug#end()
@@ -105,13 +95,14 @@ let g:vim_json_syntax_conceal = 0
 
 " ---------------------- AutoPairs Setup ----------------------
 
-let g:AutoPairsFlyMode = 0
+" TODO: Remove if autopairs is not used
+" let g:AutoPairsFlyMode = 0
 " Jump outside '"({
-let g:AutoPairsShortcutJump = ''
-inoremap <c-l> :call AutoPairsShortcutJump()
-
-if !exists('g:AutoPairsShortcutJump')
-endif
+" let g:AutoPairsShortcutJump = ''
+" inoremap <c-l> :call AutoPairsShortcutJump()
+"
+" if !exists('g:AutoPairsShortcutJump')
+" endif
 
 
 " ---------------------- FZF Setup ----------------------
@@ -126,13 +117,14 @@ let g:fzf_action = {
   \ 'ctrl-s': 'split',
   \ 'ctrl-v': 'vsplit' }
 
+" TODO: Turn this on if nerd tree is used again
 " Prevent fzf from opening a file in the nerd tree buffer
-function! FZFOpen(command_str)
-  if (expand('%') =~# 'NERD_tree' && winnr('$') > 1)
-    exe "normal! \<c-w>\<c-w>"
-  endif
-  exe 'normal! ' . a:command_str . "\<cr>"
-endfunction
+" function! FZFOpen(command_str)
+"   if (expand('%') =~# 'NERD_tree' && winnr('$') > 1)
+"     exe \"normal! \<c-w>\<c-w>"
+"   endif
+"   exe 'normal! ' . a:command_str . \"\<cr>"
+" endfunction
 
 if executable('ag')
   "Use ag over grep
