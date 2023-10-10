@@ -115,14 +115,13 @@ let g:fzf_action = {
   \ 'ctrl-s': 'split',
   \ 'ctrl-v': 'vsplit' }
 
-" TODO: Turn this on if nerd tree is used again
-" Prevent fzf from opening a file in the nerd tree buffer
-" function! FZFOpen(command_str)
-"   if (expand('%') =~# 'NERD_tree' && winnr('$') > 1)
-"     exe \"normal! \<c-w>\<c-w>"
-"   endif
-"   exe 'normal! ' . a:command_str . \"\<cr>"
-" endfunction
+function! FZFOpen(command_str)
+  " Prevent fzf from opening a file in the nerd tree buffer
+  " if (expand('%') =~# 'NERD_tree' && winnr('$') > 1)
+  "   exe \"normal! \<c-w>\<c-w>"
+  " endif
+  exe 'normal! ' . a:command_str . "\<cr>"
+endfunction
 
 if executable('ag')
   "Use ag over grep
@@ -130,6 +129,9 @@ if executable('ag')
   let g:ackprg = 'ag --nogroup --nocolor --column --ignore-dir={node_modules,dist,.git,screenshots,.next}'
 endif
 
+
+" ---------------------- COC-Eplorer Setup ----------------------
+:nmap <C-n> <Cmd>CocCommand explorer<CR>
 
 " ---------------------- Text find and replace Setup ----------------------
 nnoremap <leader>a :Ack!<Space>
@@ -161,6 +163,7 @@ let g:coc_global_extensions = [
   \ 'coc-solargraph',
   \ 'coc-rls',
   \ 'coc-tailwindcss',
+  \ 'coc-explorer',
   \ ]
 
 " Use tab for trigger completion with characters ahead and navigate.
