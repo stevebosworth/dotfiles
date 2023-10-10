@@ -47,6 +47,7 @@ else
   Plug 'tomlion/vim-solidity'
   Plug 'nvim-telescope/telescope.nvim' " optional
   Plug 'nvim-treesitter/nvim-treesitter'
+  Plug 'github/copilot.vim'
   " -- Web Development
   Plug 'mattn/emmet-vim'
   Plug 'hail2u/vim-css3-syntax'
