@@ -19,15 +19,15 @@ else
   Plug 'vim-scripts/L9'
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-ragtag'
-  Plug 'scrooloose/nerdcommenter'
-  Plug 'airblade/vim-gitgutter'
   Plug 'tpope/vim-fugitive'
   Plug 'tpope/vim-rhubarb'
   Plug 'tpope/vim-dispatch'
+  Plug 'tpope/vim-eunuch'
+  Plug 'scrooloose/nerdcommenter'
+  Plug 'airblade/vim-gitgutter'
   Plug 'jiangmiao/auto-pairs'
   Plug 'editorconfig/editorconfig-vim'
   Plug 'mileszs/ack.vim'
-  Plug 'tpope/vim-eunuch'
   Plug 'NLKNguyen/papercolor-theme'
   Plug 'djoshea/vim-autoread'
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -44,6 +44,9 @@ else
   Plug 'thaerkh/vim-workspace'
   Plug 'Yggdroot/indentLine'
   Plug 'christoomey/vim-tmux-navigator'
+  Plug 'tomlion/vim-solidity'
+  Plug 'nvim-telescope/telescope.nvim' " optional
+  Plug 'nvim-treesitter/nvim-treesitter'
   " -- Web Development
   Plug 'mattn/emmet-vim'
   Plug 'hail2u/vim-css3-syntax'
@@ -59,9 +62,6 @@ else
   Plug 'leafgarland/typescript-vim'
   Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
   Plug 'jparise/vim-graphql'
-  Plug 'tomlion/vim-solidity'
-  Plug 'nvim-telescope/telescope.nvim' " optional
-  Plug 'nvim-treesitter/nvim-treesitter'
   Plug 'cuducos/yaml.nvim'
 
   " -- Python Dev
