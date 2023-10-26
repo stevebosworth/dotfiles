@@ -5,7 +5,6 @@ alias cls='clear' # Good 'ol Clear Screen command
 alias zshrc="nvim ~/.zshrc"
 alias ohmyzsh="nvim ~/.oh-my-zsh"
 alias vimrc="nvim ~/.vimrc"
-alias ng="ngrok http -subdomain=steve"
 
 # Add to ~/.zshrc
 alias a="arch -x86_64"
@@ -14,11 +13,7 @@ alias ibrew="arch -x86_64 brew"
 alias srczsh="source ~/.zshrc"
 alias srcvim="source ~/.zshrc"
 
-alias copyjs="pbpaste | highlight --font Menlo --font-size 24 --style solarized-dark --syntax=js -O rtf | pbcopy"
-alias copyhtml="pbpaste | highlight --font Menlo --font-size 24 --style solarized-dark --syntax=html -O rtf | pbcopy"
-alias copycss="pbpaste | highlight --font Menlo --font-size 24 --style solarized-dark --syntax=css -O rtf | pbcopy"
-alias copyliquid="pbpaste | highlight --font Menlo --font-size 24 --style solarized-dark --syntax=liquid -O rtf | pbcopy"
-alias notes="cd ~/Dropbox/Notes && nvim"
+alias notes="cd ~/Notes && nvim"
 alias be="bundle exec"
 alias br="bin/rails"
 alias br:nukedb="bin/rails db:drop db:create db:migrate db:seed"
