@@ -58,9 +58,7 @@ let mapleader = ","
 " set python version for neovim
 let g:python3_host_prog = $PYTHON3_PATH
 
-" map <leader>q and <leader>w to buffer prev/next buffer
-noremap <leader>q :bp<CR>
-noremap <leader>w :bn<CR>
+source $ZSH/vim/plugins.vim
 
 " hide unnecessary gui in gVim
 if has("gui_running")
@@ -95,6 +93,7 @@ set wildmode=list:longest
 set scrolloff=3
 
 " indentation
+set tabstop=2       " tabs are 2 spaces
 set expandtab       " use spaces instead of tabs
 set autoindent      " autoindent based on line above, works most of the time
 set smartindent     " smarter indent for C-like languages
@@ -194,11 +193,12 @@ augroup myvimrc
   au BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
 augroup END
 
-source $ZSH/vim/plugins.vim
 
 " set the color theme
 set background=dark
-colorscheme PaperColor
+if exists('PaperColor')
+  colorscheme PaperColor
+endif
 
 " Autoload .vimrc
 augroup reload_vimrc " {
@@ -209,3 +209,4 @@ augroup END " }
 
 " set secure to protect project specific vimrc
 set secure
+

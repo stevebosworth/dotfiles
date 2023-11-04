@@ -28,7 +28,7 @@
   "typescript.suggest.autoImports": true,
   // coc-explorer
   "explorer.icon.enableNerdfont": true,
-  "explorer.previewAction.onHover": false,
+  "explorer.previewAction.onHover": true,
   "explorer.keyMappings": {
     "<cr>": [
       "expandable?",

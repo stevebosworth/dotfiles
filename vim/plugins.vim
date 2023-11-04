@@ -32,7 +32,7 @@ else
   Plug 'junegunn/fzf.vim'
   Plug 'ntpeters/vim-better-whitespace'
   Plug 'itchyny/lightline.vim'
-  Plug 'maximbaz/lightline-ale'
+  " Plug 'maximbaz/lightline-ale'
   Plug 'kien/rainbow_parentheses.vim'
   Plug 'majutsushi/tagbar'
   Plug 'Konfekt/vim-alias'
@@ -42,22 +42,23 @@ else
   Plug 'Yggdroot/indentLine'
   Plug 'christoomey/vim-tmux-navigator'
   Plug 'github/copilot.vim'
+  Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
   " -- Web Development
   Plug 'mattn/emmet-vim'
-  Plug 'hail2u/vim-css3-syntax'
-  Plug 'ap/vim-css-color'
-  Plug 'othree/html5.vim'
-  Plug 'briancollins/vim-jst'
+  " Plug 'hail2u/vim-css3-syntax'
+  " Plug 'ap/vim-css-color'
+  " Plug 'othree/html5.vim'
+  " Plug 'briancollins/vim-jst'
   Plug 'tpope/vim-rails'
   Plug 'tpope/vim-liquid'
   Plug 'nickng/vim-scribble'
-  Plug 'heavenshell/vim-jsdoc'
-  Plug 'pangloss/vim-javascript'
-  Plug 'peitalin/vim-jsx-typescript'
-  Plug 'leafgarland/typescript-vim'
-  Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
-  Plug 'jparise/vim-graphql'
-  Plug 'cuducos/yaml.nvim'
+  " Plug 'heavenshell/vim-jsdoc'
+  " Plug 'pangloss/vim-javascript'
+  " Plug 'peitalin/vim-jsx-typescript'
+  " Plug 'leafgarland/typescript-vim'
+  " Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+  " Plug 'jparise/vim-graphql'
+  " Plug 'cuducos/yaml.nvim'
 endif
 
 call plug#end()
@@ -131,7 +132,10 @@ endif
 
 
 " ---------------------- COC-Eplorer Setup ----------------------
-:nmap <C-n> <Cmd>CocCommand explorer<CR>
+" :nmap <C-n> <Cmd>CocCommand explorer<CR>
+
+" ---------------------- ChadTree Setup ----------------------
+:nmap <C-n> <Cmd>CHADopen<CR>
 
 " ---------------------- Text find and replace Setup ----------------------
 nnoremap <leader>a :Ack!<Space>
@@ -163,7 +167,6 @@ let g:coc_global_extensions = [
   \ 'coc-solargraph',
   \ 'coc-rls',
   \ 'coc-tailwindcss',
-  \ 'coc-explorer',
   \ ]
 
 " Use tab for trigger completion with characters ahead and navigate.
