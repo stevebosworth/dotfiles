@@ -20,3 +20,6 @@ export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 
 ## Nix PATH
 export NIX_PATH="nixpkgs=$HOME/.nix-defexpr/channels/nixpkgs:$HOME/.nix-defexpr/channels"
+
+## Lunar VIM PATH
+export PATH=/Users/steveb/.local/bin:$PATH
