@@ -10,11 +10,10 @@ cd "$(dirname $0)"/..
 find . -name install.sh | while read installer ; do sh -c "${installer}" ; done
 
 info "installing dependencies"
+#TODO: remove if bin/dot doesn't actually exist
 if source bin/dot | while read -r data; do info "$data"; done
 then
   success "dependencies installed"
 else
   fail "error installing dependencies"
 fi
-
-
