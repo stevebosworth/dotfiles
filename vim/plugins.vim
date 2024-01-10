@@ -32,7 +32,6 @@ else
   Plug 'junegunn/fzf.vim'
   Plug 'ntpeters/vim-better-whitespace'
   Plug 'itchyny/lightline.vim'
-  " Plug 'maximbaz/lightline-ale'
   Plug 'kien/rainbow_parentheses.vim'
   Plug 'majutsushi/tagbar'
   Plug 'Konfekt/vim-alias'
@@ -42,23 +41,13 @@ else
   Plug 'Yggdroot/indentLine'
   Plug 'christoomey/vim-tmux-navigator'
   Plug 'github/copilot.vim'
-  Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
+  " Plug 'preservim/nerdtree'
+  " Plug 'PhilRunninger/nerdtree-buffer-ops'
   " -- Web Development
   Plug 'mattn/emmet-vim'
-  " Plug 'hail2u/vim-css3-syntax'
-  " Plug 'ap/vim-css-color'
-  " Plug 'othree/html5.vim'
-  " Plug 'briancollins/vim-jst'
   Plug 'tpope/vim-rails'
   Plug 'tpope/vim-liquid'
   Plug 'nickng/vim-scribble'
-  " Plug 'heavenshell/vim-jsdoc'
-  " Plug 'pangloss/vim-javascript'
-  " Plug 'peitalin/vim-jsx-typescript'
-  " Plug 'leafgarland/typescript-vim'
-  " Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
-  " Plug 'jparise/vim-graphql'
-  " Plug 'cuducos/yaml.nvim'
 endif
 
 call plug#end()
@@ -129,13 +118,6 @@ if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor
   let g:ackprg = 'ag --nogroup --nocolor --column --ignore-dir={node_modules,dist,.git,screenshots,.next}'
 endif
-
-
-" ---------------------- COC-Eplorer Setup ----------------------
-" :nmap <C-n> <Cmd>CocCommand explorer<CR>
-
-" ---------------------- ChadTree Setup ----------------------
-:nmap <C-n> <Cmd>CHADopen<CR>
 
 " ---------------------- Text find and replace Setup ----------------------
 nnoremap <leader>a :Ack!<Space>
@@ -212,6 +194,42 @@ function! s:show_documentation()
     call CocAction('doHover')
   endif
 endfunction
+
+" ---------------------- NERDTree Setup ----------------------
+"  TODO: Remove once I decide on an explorer
+" map <C-n> :NERDTreeToggle<CR>
+" map <leader>n :NERDTreeFind<CR>
+"
+" "quit NERDTree with :q
+" function! NERDTreeQuit()
+"   redir => buffersoutput
+"   silent buffers
+"   redir END
+"   "                     1BufNo  2Mods.     3File           4LineNo
+"   let pattern = '^\s*\(\d\+\)\(.....\) "\(.*\)"\s\+line \(\d\+\)$'
+"   let windowfound = 0
+"
+"   for bline in split(buffersoutput, "\n")
+"     let m = matchlist(bline, pattern)
+"
+"     if (len(m) > 0)
+"       if (m[2] =~ '..a..')
+"         let windowfound = 1
+"       endif
+"     endif
+"   endfor
+"
+"   if (!windowfound)
+"     quitall
+"   endif
+" endfunction
+"
+" autocmd WinEnter * call NERDTreeQuit()
+"
+" set wildignore+=*.pyc,*.o,*.obj,*.svn,*.swp,*.class,*.hg,*.DS_Store,*.min.*
+"
+" " Nerdtree config for wildignore
+" let NERDTreeRespectWildIgnore=1
 
 " ---------------------- Ale Setup ----------------------
 " TODO: Remove ale setup if it's not used

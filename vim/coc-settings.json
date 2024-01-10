@@ -26,7 +26,6 @@
   ],
   "javascript.suggest.autoImports": true,
   "typescript.suggest.autoImports": true,
-  // coc-explorer
   "explorer.icon.enableNerdfont": true,
   "explorer.previewAction.onHover": true,
   "explorer.keyMappings": {
