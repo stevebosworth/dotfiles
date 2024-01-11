@@ -12,5 +12,9 @@ return {
       -- refer to the configuration section below
     }
   },
+  {
+    'nvim-telescope/telescope.nvim', tag = '0.1.5',
+    dependencies = { 'nvim-lua/plenary.nvim' }
+  },
   "tpope/vim-surround",
 }
