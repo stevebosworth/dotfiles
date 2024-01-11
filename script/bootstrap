@@ -54,15 +54,16 @@ install_dotfiles () {
 install_neovim_config () {
   info 'installing .config/ files'
 
-  local overwrite_all=true backup_all=false skip_all=false
-
-  # Make sure neovim folder exists
-  mkdir -p "$HOME/.config/nvim"
 
   src="$DOTFILES_ROOT/neovim/*"
   dst="$HOME/.config/nvim/"
 
-  link_file "$src" "$dst"
+  # Clean up and then make sure neovim folder exists
+  rm -rf $dst
+  mkdir -p $dst
+
+  ln -s $src $dst
+  success "linked $src to $dst"
 }
 
 install_dotfiles

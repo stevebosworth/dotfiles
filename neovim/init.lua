@@ -1,3 +1,3 @@
 require ('options')
 require ('mappings')
-require ('plugins')
+require ('lazy-config')
