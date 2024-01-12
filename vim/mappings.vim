@@ -1,16 +1,5 @@
 " ---------------------- KEY REMAPPING ----------------------
 
-" use <C-Space> for Vim's keyword autocomplete
-"  ...in the terminal
-inoremap <Nul> <C-Space>
-"  ...and in gui mode
-inoremap <C-Space> <C-n>
-
-" Use kj to exit insert mode
-" inoremap kj <esc>
-" cnoremap kj <esc>
-" vnoremap kj <esc>
-
 nmap <up> <nop>
 nmap <down> <nop>
 nmap <left> <nop>

@@ -1,5 +1,4 @@
 -- Hint: use `:h <option>` to figure out the meaning if needed
-vim.opt.clipboard = 'unnamedplus'   -- use system clipboard
 vim.opt.completeopt = {'menu', 'menuone', 'noselect'}
 vim.opt.mouse = 'a'                 -- allow the mouse to be used in Nvim
 vim.opt.selection = 'exclusive'     -- don't include the newline when yanking
@@ -26,6 +25,10 @@ vim.opt.cursorline = true           -- highlight cursor line underneath the curs
 vim.opt.splitbelow = true           -- open new vertical split bottom
 vim.opt.splitright = true           -- open new horizontal splits right
 vim.opt.termguicolors = true        -- enabl 24-bit RGB color in the TUI
+vim.opt.scrolloff = 4               -- never have less than 4 lines visible
+vim.opt.colorcolumn = '80'
+
+vim.opt.guifont = 'UbuntuMono Nerd Font Mono'
 
 -- Searching
 vim.opt.incsearch = true            -- search as characters are entered
