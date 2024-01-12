@@ -22,6 +22,9 @@ vim.keymap.set('n', '<C-Down>', ':resize +2<CR>', opts)
 vim.keymap.set('n', '<C-Left>', ':vertical resize -2<CR>', opts)
 vim.keymap.set('n', '<C-Right>', ':vertical resize +2<CR>', opts)
 
+-- Netrw
+vim.keymap.set('n', '<leader>dd', ':Lexplore %:p:h<CR>', opts)
+
 -----------------
 -- Visual mode --
 -----------------
@@ -29,4 +32,25 @@ vim.keymap.set('n', '<C-Right>', ':vertical resize +2<CR>', opts)
 -- Hint: start visual mode with the same area as the previous area and the same mode
 vim.keymap.set('v', '<', '<gv', opts)
 vim.keymap.set('v', '>', '>gv', opts)
+
+--Reset Case Switching
+vim.keymap.set('v', 'u', '<nop>', opts)
+vim.keymap.set('v', 'U', '<nop>', opts)
+
+-----------------
+-- Visual mode --
+-----------------
+
+-- Copy to clipboard
+vim.keymap.set('v', '<leader>y',  '"+y', opts)
+vim.keymap.set('n', '<leader>Y',  '"+yg_', opts)
+vim.keymap.set('n', '<leader>y',  '"+y', opts)
+vim.keymap.set('n', '<leader>yy',  '"+yy', opts)
+
+-- Paste from clipboard
+vim.keymap.set('n', '<leader>p', '"+p', opts)
+vim.keymap.set('n', '<leader>P', '"+P', opts)
+vim.keymap.set('v', '<leader>p', '"+p', opts)
+vim.keymap.set('v', '<leader>P', '"+P', opts)
+
 
