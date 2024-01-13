@@ -48,6 +48,10 @@ set mouse=a
 " Allow project specific vimrc
 set exrc
 
+" set python version for neovim
+let g:python3_host_prog = $PYTHON3_PATH
+
+
 " ---------------------- CUSTOMIZATION ----------------------
 "  The following are some extra mappings/configs to enhance my personal
 "  VIM experience
@@ -55,10 +59,6 @@ set exrc
 " set , as mapleader
 let mapleader = ","
 
-" set python version for neovim
-let g:python3_host_prog = $PYTHON3_PATH
-
-source $ZSH/vim/plugins.vim
 
 " hide unnecessary gui in gVim
 if has("gui_running")
@@ -182,7 +182,6 @@ set foldlevel=20
 
 set selection=exclusive
 
-source $ZSH/vim/mappings.vim
 
 command! PrettyJSON %!jq '.'
 command! PrettyHTML !tidy -mi -html -wrap 0 %
@@ -194,12 +193,6 @@ augroup myvimrc
 augroup END
 
 
-" set the color theme
-set background=dark
-if exists('PaperColor')
-  colorscheme PaperColor
-endif
-
 " Autoload .vimrc
 augroup reload_vimrc " {
     autocmd!
@@ -210,3 +203,5 @@ augroup END " }
 " set secure to protect project specific vimrc
 set secure
 
+source $ZSH/vim/mappings.vim
+source $ZSH/vim/plugins.vim

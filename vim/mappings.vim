@@ -14,11 +14,14 @@ vmap <right> <nop>
 nnoremap <C-C> :Command<CR>
 vnoremap <C-C> :Command<CR>
 
+" Use ack for search
+nnoremap <leader>a :Ack!<Space>
+
+nnoremap <C-f> :Ack! "<C-R><C-W>"
+vnoremap <C-f> :Ack! "<C-R><C-W>"
+
 " Go to end of line and insert
 inoremap <C-f> <C-o>A
-
-" Add space in behind cursor
-nnoremap ss i<space><esc>
 
 " reset case switching
 vmap u <nop>
