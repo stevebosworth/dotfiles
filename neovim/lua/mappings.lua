@@ -22,9 +22,6 @@ vim.keymap.set('n', '<C-Down>', ':resize +2<CR>', opts)
 vim.keymap.set('n', '<C-Left>', ':vertical resize -2<CR>', opts)
 vim.keymap.set('n', '<C-Right>', ':vertical resize +2<CR>', opts)
 
--- Netrw
-vim.keymap.set('n', '<leader>dd', ':Lexplore %:p:h<CR>', opts)
-
 -----------------
 -- Visual mode --
 -----------------
@@ -33,9 +30,10 @@ vim.keymap.set('n', '<leader>dd', ':Lexplore %:p:h<CR>', opts)
 vim.keymap.set('v', '<', '<gv', opts)
 vim.keymap.set('v', '>', '>gv', opts)
 
---Reset Case Switching
+--Reset bad keybindings
 vim.keymap.set('v', 'u', '<nop>', opts)
 vim.keymap.set('v', 'U', '<nop>', opts)
+vim.keymap.set("n", "Q", "<nop>", opts)
 
 -----------------
 -- Visual mode --
@@ -53,4 +51,26 @@ vim.keymap.set('n', '<leader>P', '"+P', opts)
 vim.keymap.set('v', '<leader>p', '"+p', opts)
 vim.keymap.set('v', '<leader>P', '"+P', opts)
 
+-- Try out primegean's mappings
 
+-- Move selected line / block of text in visual mode
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", opts)
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", opts)
+
+vim.keymap.set("n", "J", "mzJ`z", opts)
+
+vim.keymap.set("n", "<C-d>", "<C-d>zz", opts)
+
+vim.keymap.set("n", "<C-u>", "<C-u>zz", opts)
+
+vim.keymap.set("n", "n", "nzzzv", opts)
+
+vim.keymap.set("n", "N", "Nzzzv", opts)
+
+-- Format current buffer
+vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
+
+-- Source current buffer
+vim.keymap.set("n", "<leader><leader>", function()
+    vim.cmd("so")
+end)

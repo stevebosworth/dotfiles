@@ -16,8 +16,8 @@ return require('packer').startup(function(use)
   use {
     'NLKNguyen/papercolor-theme',
     as = 'papercolor',
-    config = function() 
-      vim.opt.background = 'dark' 
+    config = function()
+      vim.opt.background = 'dark'
       vim.cmd('colorscheme papercolor')
     end
   }
@@ -61,31 +61,27 @@ return require('packer').startup(function(use)
     },
   }
 
-  use {
-    'rmagatti/auto-session',
-    config = function()
-      require("auto-session").setup {
-        log_level = "error",
-        auto_session_suppress_dirs = { "~/", "~/Projects", "~/Downloads", "/"},
-      }
-    end
-  }
+  use 'lukas-reineke/indent-blankline.nvim'
 
+  -- Config Files
+  use 'Shatur/neovim-session-manager'
   use 'mbbill/undotree'
+  use ('scrooloose/nerdcommenter') -- TODO: Add config
+  use 'editorconfig/editorconfig-vim'
+  use 'hiphish/rainbow-delimiters.nvim'
+--  use 'janko/vim-test'
+--  use 'Yggdroot/indentLine'
+--  use 'christoomey/vim-tmux-navigator'
+--  use 'mattn/emmet-vim'
+  use { "alexghergh/nvim-tmux-navigation" }
+
+  -- No config
   use 'tpope/vim-fugitive'
   use 'tpope/vim-surround'
   use 'tpope/vim-ragtag'
   use 'tpope/vim-rhubarb'
   use 'tpope/vim-dispatch'
   use 'tpope/vim-eunuch'
---  use ('scrooloose/nerdcommenter') -- TODO: Add config
-  use 'editorconfig/editorconfig-vim'
--- use ('kien/rainbow_parentheses.vim')
---  use 'janko/vim-test'
---  use 'Yggdroot/indentLine'
---  use 'christoomey/vim-tmux-navigator'
   use 'github/copilot.vim'
---  use 'mattn/emmet-vim'
-  use { "alexghergh/nvim-tmux-navigation" }
 
 end)
