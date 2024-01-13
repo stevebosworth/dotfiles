@@ -66,7 +66,7 @@ return require('packer').startup(function(use)
   -- Config Files
   use 'Shatur/neovim-session-manager'
   use 'mbbill/undotree'
-  use ('scrooloose/nerdcommenter') -- TODO: Add config
+  use ('scrooloose/nerdcommenter')
   use 'editorconfig/editorconfig-vim'
   use 'hiphish/rainbow-delimiters.nvim'
 --  use 'janko/vim-test'
