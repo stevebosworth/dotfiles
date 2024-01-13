@@ -8,6 +8,5 @@ mitmproxy
 tree
 tmux
 vim
-neovim
 bc
 
