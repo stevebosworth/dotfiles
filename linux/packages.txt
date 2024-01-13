@@ -1,0 +1,13 @@
+zsh
+ripgrep
+ack
+fzf
+git
+ripgrep
+mitmproxy
+tree
+tmux
+vim
+neovim
+bc
+

@@ -67,6 +67,9 @@ vim.keymap.set("n", "n", "nzzzv", opts)
 
 vim.keymap.set("n", "N", "Nzzzv", opts)
 
+-- Set current buffer as executable
+vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
+
 -- Format current buffer
 vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
 

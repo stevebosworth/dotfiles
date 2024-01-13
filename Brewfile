@@ -3,6 +3,7 @@ cask_args appdir: '/Applications'
 tap 'homebrew/bundle'
 tap 'puma/puma'
 
+brew 'zsh'
 brew 'ack'
 brew 'fzf'
 brew 'the_silver_searcher'
