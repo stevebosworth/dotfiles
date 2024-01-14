@@ -27,12 +27,12 @@ vim.opt.splitright = true           -- open new horizontal splits right
 vim.opt.termguicolors = true        -- enabl 24-bit RGB color in the TUI
 vim.opt.scrolloff = 4               -- never have less than 4 lines visible
 vim.opt.colorcolumn = '80'
-
 vim.opt.guifont = 'UbuntuMono Nerd Font Mono'
+vim.opt.updatetime = 300
+vim.opt.signcolumn = 'auto:4'
 
 -- Searching
 vim.opt.incsearch = true            -- search as characters are entered
 vim.opt.hlsearch = true             -- highlight matches
 vim.opt.ignorecase = true           -- ignore case in searches by default
 vim.opt.smartcase = true            -- but make it case sensitive if an uppercase is entered
-

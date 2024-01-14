@@ -17,7 +17,6 @@ else
   Plug 'lambdalisue/fern.vim'
   Plug 'hrsh7th/fern-mapping-call-function.vim'
   Plug 'lambdalisue/fern-git-status.vim'
-  Plug 'lambdalisue/nerdfont.vim'
   Plug 'vim-scripts/L9'
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-ragtag'
@@ -31,6 +30,7 @@ else
   Plug 'editorconfig/editorconfig-vim'
   Plug 'mileszs/ack.vim'
   Plug 'NLKNguyen/papercolor-theme'
+  Plug 'hardhackerlabs/theme-vim', { 'as': 'hardhacker'
   " automatically reload files changed outside vim
   Plug 'djoshea/vim-autoread'
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -38,7 +38,6 @@ else
   Plug 'ntpeters/vim-better-whitespace'
   Plug 'itchyny/lightline.vim'
   Plug 'kien/rainbow_parentheses.vim'
-  Plug 'majutsushi/tagbar'
   Plug 'Konfekt/vim-alias'
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'janko/vim-test'

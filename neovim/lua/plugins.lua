@@ -14,11 +14,12 @@ return require('packer').startup(function(use)
   }
 
   use {
-    'NLKNguyen/papercolor-theme',
-    as = 'papercolor',
+    'hardhackerlabs/theme-vim',
+    as = 'hardhacker',
     config = function()
       vim.opt.background = 'dark'
-      vim.cmd('colorscheme papercolor')
+      vim.g.hardhacker_darker = 1
+      vim.cmd('colorscheme hardhacker')
     end
   }
 
@@ -61,8 +62,6 @@ return require('packer').startup(function(use)
     },
   }
 
-  use 'lukas-reineke/indent-blankline.nvim'
-
   -- Config Files
   use 'Shatur/neovim-session-manager'
   use 'mbbill/undotree'
@@ -70,12 +69,12 @@ return require('packer').startup(function(use)
   use 'editorconfig/editorconfig-vim'
   use 'hiphish/rainbow-delimiters.nvim'
 --  use 'janko/vim-test'
---  use 'Yggdroot/indentLine'
---  use 'christoomey/vim-tmux-navigator'
 --  use 'mattn/emmet-vim'
   use { "alexghergh/nvim-tmux-navigation" }
 
   -- No config
+  use 'airline/vim-gitgutter'
+  use 'lukas-reineke/indent-blankline.nvim'
   use 'tpope/vim-fugitive'
   use 'tpope/vim-surround'
   use 'tpope/vim-ragtag'
@@ -83,5 +82,25 @@ return require('packer').startup(function(use)
   use 'tpope/vim-dispatch'
   use 'tpope/vim-eunuch'
   use 'github/copilot.vim'
+
+  -- Inline Config
+
+  -- remove trailing whitespace
+  use({
+    "cappyzawa/trim.nvim",
+    config = function()
+      require("trim").setup({
+        -- if you want to ignore markdown file.
+        -- you can specify filetypes.
+        ft_blocklist = {"markdown"},
+
+        -- if you want to remove multiple blank lines
+        -- replace multiple blank lines with a single line
+        patterns = {
+          [[%s/\(\n\n\)\n\+/\1/]],
+        },
+      })
+    end
+  })
 
 end)
