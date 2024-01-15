@@ -28,8 +28,9 @@ vim.opt.termguicolors = true        -- enabl 24-bit RGB color in the TUI
 vim.opt.scrolloff = 4               -- never have less than 4 lines visible
 vim.opt.colorcolumn = '80'
 vim.opt.guifont = 'UbuntuMono Nerd Font Mono'
-vim.opt.updatetime = 300
+vim.opt.updatetime = 50
 vim.opt.signcolumn = 'auto:4'
+vim.opt.wrap = false
 
 -- Searching
 vim.opt.incsearch = true            -- search as characters are entered
