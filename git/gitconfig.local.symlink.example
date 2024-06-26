@@ -3,3 +3,5 @@
         email = AUTHOREMAIL
 [credential]
         helper = GIT_CREDENTIAL_HELPER
+[include]
+        path = /Users/steveb/.config/dev/gitconfig

@@ -15,7 +15,6 @@
 [core]
         excludesfile = ~/.gitignore
 	editor = nvim
-	commitGraph = true
 [apply]
         whitespace = nowarn
 [mergetool]
@@ -51,12 +50,5 @@
         delete-merged-branches = "!f() { git checkout --quiet master && git branch --merged | grep --invert-match '\\*' | xargs -n 1 git branch --delete; git checkout --quiet @{-1}; }; f"
 [alias]
         local-branches = !git branch -vv | cut -c 3- | awk '$3 !~/\\[/ { print $1 }'
-
-[diff]
-	algorithm = patience
-[protocol]
-	version = 2
-[gc]
-	writeCommitGraph = true
 [pull]
 	ff = only
