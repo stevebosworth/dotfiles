@@ -30,7 +30,7 @@ vim.opt.colorcolumn = '80'
 vim.opt.guifont = 'UbuntuMono Nerd Font Mono'
 vim.opt.updatetime = 50
 vim.opt.signcolumn = 'auto:4'
-vim.opt.wrap = false
+vim.opt.wrap = true
 
 -- Searching
 vim.opt.incsearch = true            -- search as characters are entered
