@@ -8,5 +8,3 @@ mitmproxy
 tree
 tmux
 vim
-bc
-

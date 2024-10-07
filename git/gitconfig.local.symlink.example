@@ -1,7 +1,8 @@
 [user]
-        name = AUTHORNAME
-        email = AUTHOREMAIL
+        name = Steve Bosworth
+        email = steve.bosworth@shopify.com
 [credential]
         helper = GIT_CREDENTIAL_HELPER
 [include]
         path = /Users/steveb/.config/dev/gitconfig
+        helper = GIT_CREDENTIAL_HELPER

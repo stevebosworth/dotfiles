@@ -78,3 +78,13 @@ eval "$(pyenv init --path)"
 [[ -f /opt/dev/sh/chruby/chruby.sh ]] && { type chruby >/dev/null 2>&1 || chruby () { source /opt/dev/sh/chruby/chruby.sh; chruby "$@"; } }
 
 eval $(thefuck --alias)
+
+[ -f /opt/dev/dev.sh ] && source /opt/dev/dev.sh
+
+# pnpm
+export PNPM_HOME="/Users/steveb/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end

@@ -31609,6 +31609,8 @@
 	<false/>
 	<key>DisableFullscreenTransparency</key>
 	<true/>
+	<key>DoubleClickPerformsSmartSelection</key>
+	<true/>
 	<key>EnableProxyIcon</key>
 	<true/>
 	<key>EnableRendezvous</key>
@@ -35089,6 +35091,8 @@ Close All Panes in Tab</string>
 	<key>PromptOnQuit</key>
 	<false/>
 	<key>QuitWhenAllWindowsClosed</key>
+	<false/>
+	<key>ReportHorizontalScrollEvents</key>
 	<false/>
 	<key>RightCommand</key>
 	<integer>8</integer>

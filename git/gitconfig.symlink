@@ -1,9 +1,7 @@
 # Local/private config goes in the include
 [include]
         path = ~/.gitconfig.local
-
-[includeIf "gitdir:~/spin/"]
-        path = ~/.gitconfig.spin
+        path = /Users/steveb/.config/dev/gitconfig
 
 [hub]
         protocol = https
@@ -52,3 +50,6 @@
         local-branches = !git branch -vv | cut -c 3- | awk '$3 !~/\\[/ { print $1 }'
 [pull]
 	ff = only
+[credential]
+	helper =
+	helper = store --file /opt/dev/var/private/git_credential_store
