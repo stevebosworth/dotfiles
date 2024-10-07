@@ -70,7 +70,7 @@ return require('packer').startup(function(use)
   }
 
   -- Config Files
-  -- use 'Shatur/neovim-session-manager'
+  use 'Shatur/neovim-session-manager'
   use 'mbbill/undotree'
   use ('scrooloose/nerdcommenter')
   use 'editorconfig/editorconfig-vim'
