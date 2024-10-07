@@ -37,3 +37,10 @@ vim.opt.incsearch = true            -- search as characters are entered
 vim.opt.hlsearch = true             -- highlight matches
 vim.opt.ignorecase = true           -- ignore case in searches by default
 vim.opt.smartcase = true            -- but make it case sensitive if an uppercase is entered
+
+local mygroup = vim.api.nvim_create_augroup('vimrc', { clear = true })
+vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead' }, {
+  pattern = '*.njk',
+  group = mygroup,
+  command = 'set syntax=html',
+})

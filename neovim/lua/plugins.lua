@@ -51,6 +51,9 @@ return require('packer').startup(function(use)
       {'saadparwaiz1/cmp_luasnip'},
       {'L3MON4D3/LuaSnip'},
       {'rafamadriz/friendly-snippets'},
+      -- Prettier
+      {'jose-elias-alvarez/null-ls.nvim'},
+      {'MunifTanjim/prettier.nvim'},
     }
   }
 
@@ -73,7 +76,7 @@ return require('packer').startup(function(use)
   use 'editorconfig/editorconfig-vim'
   use 'hiphish/rainbow-delimiters.nvim'
 --  use 'janko/vim-test'
---  use 'mattn/emmet-vim'
+  use 'mattn/emmet-vim'
   use { "alexghergh/nvim-tmux-navigation" }
 
   -- No config

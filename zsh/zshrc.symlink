@@ -12,7 +12,6 @@ then
   source ~/.localrc
 fi
 
-
 # Set vim keybindings
 bindkey -v
 
@@ -77,3 +76,5 @@ export TDD=0
 eval "$(pyenv init --path)"
 
 [[ -f /opt/dev/sh/chruby/chruby.sh ]] && { type chruby >/dev/null 2>&1 || chruby () { source /opt/dev/sh/chruby/chruby.sh; chruby "$@"; } }
+
+eval $(thefuck --alias)
