@@ -51,6 +51,11 @@ vim.keymap.set('n', '<leader>P', '"+P', opts)
 vim.keymap.set('v', '<leader>p', '"+p', opts)
 vim.keymap.set('v', '<leader>P', '"+P', opts)
 
+-- Use ack for search
+-- vim.keymap.set('n', '<leader>a', ':Ack<space>', opts)
+-- vim.keymap.set('n', '<C-f>', ':Ack! "<C-R><C-W>"', opts)
+-- vim.keymap.set('v', '<C-f>', ':Ack! "<C-R><C-W>"', opts)
+
 -- Try out primegean's mappings
 
 -- Move selected line / block of text in visual mode

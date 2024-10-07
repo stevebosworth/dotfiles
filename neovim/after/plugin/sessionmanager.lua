@@ -1,3 +1,4 @@
+local Path = require('plenary.path')
 local config_group = vim.api.nvim_create_augroup('MyConfigGroup', {}) -- A global group for all your config autocommands
 local config = require('session_manager.config')
 local session_manager = require('session_manager')
