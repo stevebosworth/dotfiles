@@ -71,8 +71,8 @@ return require('packer').startup(function(use)
   use 'mattn/emmet-vim'
   use "alexghergh/nvim-tmux-navigation"
   -- Prettier
-  use 'jose-elias-alvarez/null-ls.nvim'
-  use  'MunifTanjim/prettier.nvim'
+  use 'nvimtools/none-ls.nvim'
+  use 'MunifTanjim/prettier.nvim'
 
   -- No config
   use 'm4xshen/autoclose.nvim'
@@ -142,6 +142,6 @@ return require('packer').startup(function(use)
       }
     end,
     wants = { 'nvim-treesitter' }, -- or require if not used so far
-    after = { 'nvim-cmp' }       -- if a completion plugin is using tabs load it before
+    after = { 'nvim-cmp' }         -- if a completion plugin is using tabs load it before
   }
 end)
