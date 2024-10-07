@@ -53,3 +53,6 @@
 [credential]
 	helper =
 	helper = store --file /opt/dev/var/private/git_credential_store
+[user]
+	name = Steve Bosworth
+	email = steve.bosworth@shopify.com
