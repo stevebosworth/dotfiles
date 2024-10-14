@@ -40,7 +40,8 @@ lsp_zero.extend_lspconfig({
 
 require('mason').setup({})
 require('mason-lspconfig').setup({
-  -- ensure_installed = {'eslint', 'rust_analyzer'},
+  ensure_installed = {'ts_ls', 'eslint', 'rust_analyzer'},
+  automatic_installer = true,
   handlers = {
     lsp_zero.default_setup,
     lua_ls = function()
@@ -48,6 +49,12 @@ require('mason-lspconfig').setup({
       require('lspconfig').lua_ls.setup(lua_opts)
     end,
   }
+})
+
+require("typescript-tools").setup({
+  settings = {
+    expose_as_code_action = {"all"},
+  },
 })
 
 local cmp = require('cmp')

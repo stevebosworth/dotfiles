@@ -23,6 +23,9 @@ vnoremap <C-f> :Ack! "<C-R><C-W>"
 " Go to end of line and insert
 inoremap <C-f> <C-o>A
 
+" kj to escape
+inoremap jk <Esc>
+
 " reset case switching
 vmap u <nop>
 vmap U <nop>

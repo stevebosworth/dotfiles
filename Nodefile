@@ -1,6 +1,7 @@
 speedtest
 eslint
 prettier
+@fsouza/prettierd
 webpack
 nodemon
 jest

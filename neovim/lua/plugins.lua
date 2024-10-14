@@ -61,6 +61,10 @@ return require('packer').startup(function(use)
     requires = { 'nvim-tree/nvim-web-devicons', opt = true }
   }
 
+  use {
+    "pmizio/typescript-tools.nvim",
+    requires = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+  }
   -- Config Files
   use 'Shatur/neovim-session-manager'
   use 'mbbill/undotree'
@@ -71,6 +75,7 @@ return require('packer').startup(function(use)
   use 'mattn/emmet-vim'
   use "alexghergh/nvim-tmux-navigation"
   -- Prettier
+  use 'neovim/nvim-lspconfig'
   use 'nvimtools/none-ls.nvim'
   use 'MunifTanjim/prettier.nvim'
 

@@ -56,6 +56,11 @@ vim.keymap.set('v', '<leader>P', '"+P', opts)
 -- vim.keymap.set('n', '<C-f>', ':Ack! "<C-R><C-W>"', opts)
 -- vim.keymap.set('v', '<C-f>', ':Ack! "<C-R><C-W>"', opts)
 
+-----------------
+-- Escape using kj --
+-----------------
+vim.keymap.set('i', 'kj', '<Esc>')
+
 -- Try out primegean's mappings
 
 -- Move selected line / block of text in visual mode
