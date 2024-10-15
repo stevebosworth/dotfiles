@@ -6,3 +6,5 @@ webpack
 nodemon
 jest
 create-react-app
+typescript
+typescript-language-server
