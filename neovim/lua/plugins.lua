@@ -1,139 +1,140 @@
-local fn = vim.fn
-local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
-if fn.empty(fn.glob(install_path)) > 0 then
-  packer_bootstrap = fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim',
-    install_path })
+-- Bootstrap lazy.nvim
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable",
+    lazypath,
+  })
 end
+vim.opt.rtp:prepend(lazypath)
 
-return require('packer').startup(function(use)
-  -- Packer can manage itself
-  use 'wbthomason/packer.nvim'
+-- Initialize lazy with plugins
+local plugins = {
+  -- Package Manager
+  "folke/lazy.nvim",
 
-  use {
-    'nvim-telescope/telescope.nvim', tag = '0.1.8',
-    requires = { { 'nvim-lua/plenary.nvim' } }
-  }
+  -- Telescope
+  {
+    'nvim-telescope/telescope.nvim',
+    tag = '0.1.8',
+    dependencies = { 'nvim-lua/plenary.nvim' }
+  },
 
-  use {
+  -- Theme
+  {
     'hardhackerlabs/theme-vim',
-    as = 'hardhacker',
+    name = 'hardhacker',
     config = function()
       vim.opt.background = 'dark'
       vim.g.hardhacker_darker = 1
       vim.cmd('colorscheme hardhacker')
     end
-  }
+  },
 
-  use {
+  -- Treesitter
+  {
     'nvim-treesitter/nvim-treesitter',
-    run = function()
-      local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
-      ts_update()
-    end,
-  }
+    build = ':TSUpdate'
+  },
 
-  use {
+  -- LSP
+  {
     'VonHeikemen/lsp-zero.nvim',
     branch = 'v4.x',
-    requires = {
-      --- Uncomment the two plugins below if you want to manage the language servers from neovim
-      --- and read this: https://github.com/VonHeikemen/lsp-zero.nvim/blob/v3.x/doc/md/guides/integrate-with-mason-nvim.md
-      { 'williamboman/mason.nvim' },
-      { 'williamboman/mason-lspconfig.nvim' },
-
-      -- LSP Support
-      { 'neovim/nvim-lspconfig' },
-      -- Autocompletion
-      { 'hrsh7th/nvim-cmp' },
-      { 'hrsh7th/cmp-nvim-lsp' },
+    dependencies = {
+      'williamboman/mason.nvim',
+      'williamboman/mason-lspconfig.nvim',
+      'neovim/nvim-lspconfig',
+      'hrsh7th/nvim-cmp',
+      'hrsh7th/cmp-nvim-lsp',
     }
-  }
+  },
 
-  use {
+  -- File Explorer
+  {
     'nvim-tree/nvim-tree.lua',
-    requires = {
-      'nvim-tree/nvim-web-devicons', -- optional
+    dependencies = {
+      'nvim-tree/nvim-web-devicons',
     },
-  }
+  },
 
-  use {
+  -- Status Line
+  {
     'nvim-lualine/lualine.nvim',
-    requires = { 'nvim-tree/nvim-web-devicons', opt = true }
-  }
+    dependencies = { 'nvim-tree/nvim-web-devicons' }
+  },
 
-  use {
+  -- TypeScript Tools
+  {
     "pmizio/typescript-tools.nvim",
-    requires = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
-  }
+    dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+  },
+
   -- Config Files
-  use 'Shatur/neovim-session-manager'
-  use 'mbbill/undotree'
-  use 'scrooloose/nerdcommenter'
-  use 'editorconfig/editorconfig-vim'
-  use 'hiphish/rainbow-delimiters.nvim'
-  --  use 'janko/vim-test'
-  use 'mattn/emmet-vim'
-  use "alexghergh/nvim-tmux-navigation"
+  'Shatur/neovim-session-manager',
+  'mbbill/undotree',
+  'scrooloose/nerdcommenter',
+  'editorconfig/editorconfig-vim',
+  'hiphish/rainbow-delimiters.nvim',
+  'mattn/emmet-vim',
+  "alexghergh/nvim-tmux-navigation",
+
   -- Prettier
-  use 'neovim/nvim-lspconfig'
-  use 'nvimtools/none-ls.nvim'
-  use 'MunifTanjim/prettier.nvim'
+  'neovim/nvim-lspconfig',
+  'nvimtools/none-ls.nvim',
+  'MunifTanjim/prettier.nvim',
 
-  -- No config
-  use 'm4xshen/autoclose.nvim'
-  use 'airblade/vim-gitgutter'
-  use 'lukas-reineke/indent-blankline.nvim'
-  use 'tpope/vim-fugitive'
-  use 'tpope/vim-surround'
-  use 'tpope/vim-ragtag'
-  use 'tpope/vim-rhubarb'
-  use 'tpope/vim-dispatch'
-  use 'tpope/vim-eunuch'
-  use 'github/copilot.vim'
+  -- No config needed
+  'm4xshen/autoclose.nvim',
+  'airblade/vim-gitgutter',
+  'lukas-reineke/indent-blankline.nvim',
+  'tpope/vim-fugitive',
+  'tpope/vim-surround',
+  'tpope/vim-ragtag',
+  'tpope/vim-rhubarb',
+  'tpope/vim-dispatch',
+  'tpope/vim-eunuch',
+  'github/copilot.vim',
 
-  -- Inline Config
-
-  -- remove trailing whitespace
-  use({
+  -- Trim whitespace
+  {
     "cappyzawa/trim.nvim",
     config = function()
       require("trim").setup({
-        -- if you want to ignore markdown file.
-        -- you can specify filetypes.
         ft_blocklist = { "markdown" },
-
-        -- if you want to remove multiple blank lines
-        -- replace multiple blank lines with a single line
         patterns = {
           [[%s/\(\n\n\)\n\+/\1/]],
         },
       })
     end
-  })
+  },
 
-  use {
+  -- Ultimate Autopair
+  {
     'altermo/ultimate-autopair.nvim',
     event = { 'InsertEnter', 'CmdlineEnter' },
-    branch = 'v0.6', --recomended as each new version will have breaking changes
-    config = function()
-      require('ultimate-autopair').setup({
-        --Config goes here
-      })
-    end,
-  }
+    branch = 'v0.6',
+    opts = {},
+  },
 
-  use {
+  -- Tabout
+  {
     'abecodes/tabout.nvim',
+    dependencies = { 'nvim-treesitter', 'nvim-cmp' },
     config = function()
       require('tabout').setup {
-        tabkey = '<Tab>',             -- key to trigger tabout, set to an empty string to disable
-        backwards_tabkey = '<S-Tab>', -- key to trigger backwards tabout, set to an empty string to disable
-        act_as_tab = true,            -- shift content if tab out is not possible
-        act_as_shift_tab = false,     -- reverse shift content if tab out is not possible (if your keyboard/terminal supports <S-Tab>)
-        default_tab = '<C-t>',        -- shift default action (only at the beginning of a line, otherwise <TAB> is used)
-        default_shift_tab = '<C-d>',  -- reverse shift default action,
-        enable_backwards = true,      -- well ...
-        completion = true,            -- if the tabkey is used in a completion pum
+        tabkey = '<Tab>',
+        backwards_tabkey = '<S-Tab>',
+        act_as_tab = true,
+        act_as_shift_tab = false,
+        default_tab = '<C-t>',
+        default_shift_tab = '<C-d>',
+        enable_backwards = true,
+        completion = true,
         tabouts = {
           { open = "'", close = "'" },
           { open = '"', close = '"' },
@@ -142,11 +143,49 @@ return require('packer').startup(function(use)
           { open = '[', close = ']' },
           { open = '{', close = '}' }
         },
-        ignore_beginning = true, --[[ if the cursor is at the beginning of a filled element it will rather tab out than shift the content ]]
-        exclude = {} -- tabout will ignore these filetypes
+        ignore_beginning = true,
+        exclude = {}
       }
     end,
-    wants = { 'nvim-treesitter' }, -- or require if not used so far
-    after = { 'nvim-cmp' }         -- if a completion plugin is using tabs load it before
-  }
-end)
+  },
+
+  -- Avante - AI Code Assistant
+  {
+    "yetone/avante.nvim",
+    event = "VeryLazy",
+    lazy = false,
+    version = false, -- latest changes
+    build = "make",
+    dependencies = {
+      "stevearc/dressing.nvim",
+      "nvim-lua/plenary.nvim",
+      "MunifTanjim/nui.nvim",
+      "hrsh7th/nvim-cmp",
+      "nvim-tree/nvim-web-devicons",
+      "zbirenbaum/copilot.lua",
+      {
+        "HakonHarnes/img-clip.nvim",
+        event = "VeryLazy",
+        opts = {
+          default = {
+            embed_image_as_base64 = false,
+            prompt_for_file_name = false,
+            drag_and_drop = {
+              insert_mode = true,
+            },
+            use_absolute_path = true,
+          },
+        },
+      },
+      {
+        'MeanderingProgrammer/render-markdown.nvim',
+        opts = {
+          file_types = { "markdown", "Avante" },
+        },
+        ft = { "markdown", "Avante" },
+      },
+    },
+  },
+}
+
+require("lazy").setup(plugins)
