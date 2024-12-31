@@ -52,8 +52,7 @@ install_dotfiles () {
 }
 
 install_neovim_config () {
-  info 'installing .config/ files'
-
+  info 'installing neovim files'
 
   src="$DOTFILES_ROOT/neovim/*"
   dst="$HOME/.config/nvim/"
@@ -66,8 +65,23 @@ install_neovim_config () {
   success "linked $src to $dst"
 }
 
+install_ghostty_config () {
+  info 'installing ghostty files'
+
+  src="$DOTFILES_ROOT/ghostty/*"
+  dst="$HOME/.config/ghostty/"
+
+  # Clean up and then make sure folder exists
+  rm -rf $dst
+  mkdir -p $dst
+
+  ln -s $src $dst
+  success "linked $src to $dst"
+}
+
 install_dotfiles
 install_neovim_config
+install_ghostty_config
 
 echo ''
 echo '  All installed!'
