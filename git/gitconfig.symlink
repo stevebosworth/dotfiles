@@ -50,9 +50,3 @@
         local-branches = !git branch -vv | cut -c 3- | awk '$3 !~/\\[/ { print $1 }'
 [pull]
 	ff = only
-[credential]
-	helper =
-	helper = store --file /opt/dev/var/private/git_credential_store
-[user]
-	name = Steve Bosworth
-	email = steve.bosworth@shopify.com

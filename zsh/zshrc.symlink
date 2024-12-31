@@ -88,3 +88,4 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+source /Users/steveb/.config/op/plugins.sh
