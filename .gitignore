@@ -14,3 +14,4 @@ git/gitconfig.local.symlink
 zsh/config.local.zsh
 .undodir/
 .vscode/
+.env/
