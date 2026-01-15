@@ -69,7 +69,7 @@ install_ghostty_config () {
   info 'installing ghostty files'
 
   src="$DOTFILES_ROOT/ghostty/*"
-  dst="$HOME/.config/ghostty/"
+  dst="$HOME/.config/ghostty"
 
   # Clean up and then make sure folder exists
   rm -rf $dst
@@ -82,6 +82,10 @@ install_ghostty_config () {
 install_dotfiles
 install_neovim_config
 install_ghostty_config
+
+# Run install scripts
+"$DOTFILES_ROOT/tmux/install.sh"
+"$DOTFILES_ROOT/karabiner/install.sh"
 
 echo ''
 echo '  All installed!'

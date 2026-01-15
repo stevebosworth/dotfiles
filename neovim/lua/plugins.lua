@@ -38,6 +38,7 @@ local plugins = {
   -- Treesitter
   {
     'nvim-treesitter/nvim-treesitter',
+    branch = 'master',  -- Pin to stable version to avoid v2 breaking changes
     build = ':TSUpdate'
   },
 

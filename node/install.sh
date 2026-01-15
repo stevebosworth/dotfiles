@@ -5,8 +5,9 @@ fi
 
 if test $(which yarn)
 then
-  npm_packages=`cat ../Nodefile`
+  npm_packages=`cat Nodefile`
   string_packages=$( printf "%s " "${npm_packages[@]}" )
+  echo npm_packages
 
   echo string_packages
 else

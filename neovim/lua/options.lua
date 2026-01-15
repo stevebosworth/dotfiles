@@ -38,9 +38,19 @@ vim.opt.hlsearch = true             -- highlight matches
 vim.opt.ignorecase = true           -- ignore case in searches by default
 vim.opt.smartcase = true            -- but make it case sensitive if an uppercase is entered
 
+-- Auto-reload files when changed externally
+vim.opt.autoread = true             -- automatically read file when changed outside of vim
+
 local mygroup = vim.api.nvim_create_augroup('vimrc', { clear = true })
 vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead' }, {
   pattern = '*.njk',
   group = mygroup,
   command = 'set syntax=html',
+})
+
+-- Auto-reload files when changed externally
+vim.api.nvim_create_autocmd({ 'FocusGained', 'BufEnter', 'CursorHold', 'CursorHoldI' }, {
+  pattern = '*',
+  group = mygroup,
+  command = 'checktime',
 })

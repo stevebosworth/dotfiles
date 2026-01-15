@@ -1,0 +1,52 @@
+Script started on Tue Dec 16 10:56:39 2025
+[1m[3m%[23m[1m[0m                                                                                                           ]1;dotfiles[0m[23m[24m[J
+[01;36mdotfiles/[00m on [01;31mmain[00m 
+› [K[?2004hsscript/[?2004l
+[1m[3m%[23m[1m[0m                                                                                                           ]1;script[0m[23m[24m[J
+[01;36mscript/[00m on [01;31mmain[00m 
+› [K[?2004hlls[?2004l
+[0m[01;32mbootstrap[0m*  [01;32minstall[0m*
+[1m[3m%[23m[1m[0m                                                                                                           ]1;script[0m[23m[24m[J
+[01;36mscript/[00m on [01;31mmain[00m 
+› [K[?2004h../install[?2004l
+› brew update
+[34m==>[0m [1mUpdating Homebrew...[0m
+Already up-to-date.
+2025-12-16 10:56:51.678 defaults[16623:896670] Could not write domain /Users/stevebosworth/Library/Containers/com.apple.Safari/Data/Library/Preferences/com.apple.Safari; exiting
+2025-12-16 10:56:51.687 defaults[16624:896673] Could not write domain /Users/stevebosworth/Library/Containers/com.apple.Safari/Data/Library/Preferences/com.apple.Safari; exiting
+2025-12-16 10:56:51.694 defaults[16625:896676] Could not write domain /Users/stevebosworth/Library/Containers/com.apple.Safari/Data/Library/Preferences/com.apple.Safari; exiting
+2025-12-16 10:56:51.703 defaults[16626:896679] Could not write domain /Users/stevebosworth/Library/Containers/com.apple.Safari/Data/Library/Preferences/com.apple.Safari; exiting
+2025-12-16 10:56:51.711 defaults[16627:896682] Could not write domain /Users/stevebosworth/Library/Containers/com.apple.Safari/Data/Library/Preferences/com.apple.Safari; exiting
+expr: syntax error
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100 15916  100 15916    0     0   265k      0 --:--:-- --:--:-- --:--:--  267k
+=> nvm is already installed in /Users/stevebosworth/.nvm, trying to update using git
+=> => Compressing and cleaning up git repository
+
+=> nvm source string already in /Users/stevebosworth/.zshrc
+=> bash_completion source string already in /Users/stevebosworth/.zshrc
+=> Close and reopen your terminal to start using nvm or run the following to use it now:
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+cat: ../Nodefile: No such file or directory
+string_packages
+[1m[3m%[23m[1m[0m                                                                                                           ]1;script[0m[23m[24m[J
+[01;36mscript/[00m on [01;31mmain[00m 
+› [K[?2004hddcat /   d  ccat ../Nodefile[?2004l
+speedtest
+eslint
+prettier
+@fsouza/prettierd
+webpack
+nodemon
+jest
+create-react-app
+typescript
+typescript-language-server
+gemini
+[1m[3m%[23m[1m[0m                                                                                                           ]1;script[0m[23m[24m[J
+[01;36mscript/[00m on [01;31mmain[00m 
+› [K[?2004h: 

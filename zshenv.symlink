@@ -1,0 +1,10 @@
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+
+# Ensure /usr/local/bin is in PATH before loading Stripe config
+# This is needed for mint-path-resolver to be found
+export PATH="/usr/local/bin:/usr/bin:/bin:$PATH"
+
+if [[ -f ~/.stripe/shellinit/zshrc ]]; then
+  source ~/.stripe/shellinit/zshrc
+fi
