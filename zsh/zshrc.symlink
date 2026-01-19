@@ -91,12 +91,3 @@ esac
 
 # Created by `pipx` on 2025-01-02 15:40:57
 export PATH="$PATH:/Users/steveb/.local/bin"
-
-# Added by LM Studio CLI (lms)
-export PATH="$PATH:/Users/steveb/.lmstudio/bin"
-
-# Source .zprofile for rbenv and other profile-level configs
-if [[ -a ~/.zprofile ]]
-then
-  source ~/.zprofile
-fi
